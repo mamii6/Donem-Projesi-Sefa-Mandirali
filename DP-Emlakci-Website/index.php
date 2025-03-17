@@ -41,6 +41,15 @@ if (!empty($adres)) {
 $stmt = $pdo->prepare($query);
 $stmt->execute($params);
 $ilanlar = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Kullanıcı giriş yaptıysa bildirimleri al
+$bildirimler = [];
+if (isset($_SESSION["kullanici_id"])) {
+    $kullanici_id = $_SESSION["kullanici_id"];
+    $bildirim_stmt = $pdo->prepare("SELECT * FROM bildirimler WHERE kullanici_id = ? AND goruldu = 0 ORDER BY tarih DESC");
+    $bildirim_stmt->execute([$kullanici_id]);
+    $bildirimler = $bildirim_stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 ?>
 
 <!DOCTYPE html>
@@ -52,15 +61,35 @@ $ilanlar = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body>
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand" href="index.php">Emlakçı</a>
+        <a class="navbar-brand" href="#">Emlakçı</a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ms-auto">
                 <?php if (isset($_SESSION["kullanici_id"])): ?>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="bildirimDropdown" role="button" data-bs-toggle="dropdown">
+                            📩 Bildirimler 
+                            <?php if (!empty($bildirimler)): ?>
+                                <span class="badge bg-danger"><?php echo count($bildirimler); ?></span>
+                            <?php endif; ?>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <?php if (empty($bildirimler)): ?>
+                                <li><a class="dropdown-item text-muted">Bildirim yok</a></li>
+                            <?php else: ?>
+                                <?php foreach ($bildirimler as $bildirim): ?>
+                                    <li>
+                                        <a class="dropdown-item bildirim-link" href="bildirim_detay.php?id=<?php echo $bildirim["id"]; ?>" data-id="<?php echo $bildirim["id"]; ?>">
+                                            <?php echo htmlspecialchars($bildirim["mesaj"]); ?> - <?php echo date("H:i", strtotime($bildirim["tarih"])); ?>
+                                        </a>
+                                    </li>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        </ul>
+                    </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Hoş geldiniz, <?php echo htmlspecialchars($_SESSION["ad"]); ?></a>
+                        <a class="nav-link">Hoş geldiniz, <?php echo htmlspecialchars($_SESSION["ad"]); ?></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="logout.php">Çıkış Yap</a>
@@ -80,43 +109,18 @@ $ilanlar = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <div class="container mt-4">
     <h1>Emlak İlanları</h1>
-    <form method="GET" class="row g-3">
-        <div class="col-md-2">
-            <input type="number" name="min_fiyat" class="form-control" placeholder="Min Fiyat" value="<?php echo $min_fiyat; ?>">
-        </div>
-        <div class="col-md-2">
-            <input type="number" name="max_fiyat" class="form-control" placeholder="Max Fiyat" value="<?php echo $max_fiyat; ?>">
-        </div>
-        <div class="col-md-2">
-            <input type="number" name="oda_sayisi" class="form-control" placeholder="Oda Sayısı" value="<?php echo $oda_sayisi; ?>">
-        </div>
-        <div class="col-md-2">
-            <input type="number" name="metrekare_min" class="form-control" placeholder="Min m²" value="<?php echo $metrekare_min; ?>">
-        </div>
-        <div class="col-md-2">
-            <input type="number" name="metrekare_max" class="form-control" placeholder="Max m²" value="<?php echo $metrekare_max; ?>">
-        </div>
-        <div class="col-md-2">
-            <input type="text" name="adres" class="form-control" placeholder="Adres" value="<?php echo $adres; ?>">
-        </div>
-        <div class="col-md-2">
-            <button type="submit" class="btn btn-primary">Filtrele</button>
-        </div>
-    </form>
     <div class="row mt-4">
         <?php foreach ($ilanlar as $ilan): ?>
             <div class="col-md-4">
                 <div class="card mb-4">
                     <?php if (!empty($ilan["resim"])): ?>
-                        <img src="uploads/<?php echo htmlspecialchars($ilan["resim"]); ?>" class="card-img-top" style="width: 100%; height: 200px; object-fit: cover;" alt="İlan Resmi">
+                        <img src="uploads/<?php echo htmlspecialchars($ilan["resim"]); ?>" class="card-img-top" alt="İlan Resmi">
                     <?php endif; ?>
                     <div class="card-body">
                         <h5 class="card-title"> <?php echo htmlspecialchars($ilan["baslik"]); ?> </h5>
                         <p class="card-text"> <?php echo htmlspecialchars($ilan["aciklama"]); ?> </p>
                         <p class="card-text"><strong>Fiyat:</strong> <?php echo number_format($ilan["fiyat"], 2); ?> TL</p>
                         <p class="card-text"><strong>Adres:</strong> <?php echo htmlspecialchars($ilan["adres"]); ?></p>
-                        <p class="card-text"><strong>Oda Sayısı:</strong> <?php echo $ilan["oda_sayisi"]; ?></p>
-                        <p class="card-text"><strong>Metrekare:</strong> <?php echo $ilan["metrekare"]; ?> m²</p>
                         <a href="ilan_detay.php?id=<?php echo $ilan["id"]; ?>" class="btn btn-primary">Detayları Gör</a>
                     </div>
                 </div>
@@ -124,5 +128,6 @@ $ilanlar = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <?php endforeach; ?>
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
