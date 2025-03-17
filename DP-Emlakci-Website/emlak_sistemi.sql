@@ -55,3 +55,5 @@ CREATE TABLE mesajlar (
     FOREIGN KEY (alici_id) REFERENCES kullanicilar(id) ON DELETE CASCADE,
     FOREIGN KEY (ilan_id) REFERENCES ilanlar(id) ON DELETE CASCADE
 );
+
+
