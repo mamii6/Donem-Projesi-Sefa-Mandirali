@@ -40,14 +40,70 @@ require_once "db.php";
 
 <div class="container mt-4">
     <h1>Emlak İlanları</h1>
+
+    <!-- Arama ve Filtreleme Formu -->
+    <form method="GET" action="index.php" class="mb-4">
+        <div class="row">
+            <div class="col-md-3">
+                <input type="text" name="arama" class="form-control" placeholder="Başlık veya açıklama" value="<?php echo isset($_GET['arama']) ? htmlspecialchars($_GET['arama']) : ''; ?>">
+            </div>
+            <div class="col-md-2">
+                <input type="number" name="min_fiyat" class="form-control" placeholder="Min Fiyat" value="<?php echo isset($_GET['min_fiyat']) ? htmlspecialchars($_GET['min_fiyat']) : ''; ?>">
+            </div>
+            <div class="col-md-2">
+                <input type="number" name="max_fiyat" class="form-control" placeholder="Max Fiyat" value="<?php echo isset($_GET['max_fiyat']) ? htmlspecialchars($_GET['max_fiyat']) : ''; ?>">
+            </div>
+            <div class="col-md-2">
+                <input type="number" name="oda_sayisi" class="form-control" placeholder="Oda Sayısı" value="<?php echo isset($_GET['oda_sayisi']) ? htmlspecialchars($_GET['oda_sayisi']) : ''; ?>">
+            </div>
+            <div class="col-md-2">
+                <input type="number" name="metrekare" class="form-control" placeholder="Metrekare" value="<?php echo isset($_GET['metrekare']) ? htmlspecialchars($_GET['metrekare']) : ''; ?>">
+            </div>
+            <div class="col-md-1">
+                <button type="submit" class="btn btn-primary">Filtrele</button>
+            </div>
+        </div>
+    </form>
+
     <div class="row">
         <?php
-        $stmt = $pdo->query("SELECT * FROM ilanlar ORDER BY eklenme_tarihi DESC");
+        $sql = "SELECT * FROM ilanlar WHERE 1=1";
+        $params = [];
+
+        if (!empty($_GET['arama'])) {
+            $sql .= " AND (baslik LIKE ? OR aciklama LIKE ?)";
+            $params[] = "%" . $_GET['arama'] . "%";
+            $params[] = "%" . $_GET['arama'] . "%";
+        }
+
+        if (!empty($_GET['min_fiyat'])) {
+            $sql .= " AND fiyat >= ?";
+            $params[] = $_GET['min_fiyat'];
+        }
+
+        if (!empty($_GET['max_fiyat'])) {
+            $sql .= " AND fiyat <= ?";
+            $params[] = $_GET['max_fiyat'];
+        }
+
+        if (!empty($_GET['oda_sayisi'])) {
+            $sql .= " AND oda_sayisi = ?";
+            $params[] = $_GET['oda_sayisi'];
+        }
+
+        if (!empty($_GET['metrekare'])) {
+            $sql .= " AND metrekare >= ?";
+            $params[] = $_GET['metrekare'];
+        }
+
+        $sql .= " ORDER BY eklenme_tarihi DESC";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute($params);
+
         while ($ilan = $stmt->fetch(PDO::FETCH_ASSOC)) {
             echo '<div class="col-md-4">';
             echo '<div class="card mb-4">';
             
-            // Resim eklenmişse göster
             if (!empty($ilan["resim"])) {
                 echo '<img src="uploads/' . htmlspecialchars($ilan["resim"]) . '" class="card-img-top" style="width: 100%; height: 200px; object-fit: cover;" alt="İlan Resmi">';
             }
