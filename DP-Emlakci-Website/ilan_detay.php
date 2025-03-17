@@ -1,6 +1,6 @@
 <?php
 require_once "db.php";
-
+session_start();
 
 if (!isset($_GET["id"]) || empty($_GET["id"])) {
     echo "<div class='alert alert-danger'>İlan bulunamadı!</div>";
@@ -8,7 +8,6 @@ if (!isset($_GET["id"]) || empty($_GET["id"])) {
 }
 
 $ilan_id = $_GET["id"];
-
 
 $stmt = $pdo->prepare("SELECT i.*, k.ad, k.soyad, k.telefon 
                        FROM ilanlar i 
@@ -18,11 +17,21 @@ $stmt->execute([$ilan_id]);
 
 $ilan = $stmt->fetch(PDO::FETCH_ASSOC);
 
-// Debug için ekleyelim:
 if (!$ilan) {
     die("<div class='alert alert-danger'>İlan bulunamadı veya hatalı sorgu!</div>");
 }
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['kullanici_id'])) {
+    $mesaj = trim($_POST['mesaj']);
+    $gonderen_id = $_SESSION['kullanici_id'];
+    $alici_id = $ilan['kullanici_id'];
+
+    if (!empty($mesaj)) {
+        $stmt = $pdo->prepare("INSERT INTO mesajlar (gonderen_id, alici_id, ilan_id, mesaj) VALUES (?, ?, ?, ?)");
+        $stmt->execute([$gonderen_id, $alici_id, $ilan_id, $mesaj]);
+        echo "<div class='alert alert-success'>Mesaj gönderildi.</div>";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +57,7 @@ if (!$ilan) {
 
 <div class="container mt-4">
     <h2><?php echo htmlspecialchars($ilan["baslik"]); ?></h2>
-    <p class="text-muted"><?php echo htmlspecialchars($ilan["eklenme_tarihi"]); ?></p>
+    <p class="text-muted">Eklenme Tarihi: <?php echo htmlspecialchars($ilan["eklenme_tarihi"]); ?></p>
     <p><strong>Açıklama:</strong> <?php echo nl2br(htmlspecialchars($ilan["aciklama"])); ?></p>
     <p><strong>Fiyat:</strong> <?php echo number_format($ilan["fiyat"], 2); ?> TL</p>
     <p><strong>Adres:</strong> <?php echo htmlspecialchars($ilan["adres"]); ?></p>
@@ -56,14 +65,24 @@ if (!$ilan) {
     <p><strong>Metrekare:</strong> <?php echo $ilan["metrekare"]; ?> m²</p>
 
     <h4>İlan Sahibi</h4>
-    
     <p><strong>Ad Soyad:</strong> <?php echo htmlspecialchars($ilan["ad"] . " " . $ilan["soyad"]); ?></p>
-    <p><strong>Telefon:</strong> <a href="tel:<?php echo $ilan["telefon"]; ?>"><?php echo $ilan["telefon"]; ?></a></p>
+    <p><strong>Telefon:</strong> <a href="tel:<?php echo htmlspecialchars($ilan["telefon"]); ?>"><?php echo htmlspecialchars($ilan["telefon"]); ?></a></p>
+    
     <?php if (!empty($ilan["resim"])): ?>
-    <img src="uploads/<?php echo htmlspecialchars($ilan["resim"]); ?>" class="img-fluid">
+        <img src="uploads/<?php echo htmlspecialchars($ilan["resim"]); ?>" class="img-fluid">
     <?php endif; ?>
 
-    <a href="index.php" class="btn btn-secondary">Geri Dön</a>
+    <?php if (isset($_SESSION['kullanici_id']) && $_SESSION['kullanici_id'] != $ilan['kullanici_id']): ?>
+        <h3>İlan Sahibine Mesaj Gönder</h3>
+        <form method="post">
+            <div class="mb-3">
+                <textarea name="mesaj" class="form-control" rows="4" placeholder="Mesajınızı yazın..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Gönder</button>
+        </form>
+    <?php endif; ?>
+
+    <a href="index.php" class="btn btn-secondary mt-3">Geri Dön</a>
 </div>
 
 </body>
