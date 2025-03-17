@@ -36,7 +36,13 @@ $pdo->prepare("UPDATE bildirimler SET goruldu = 1 WHERE kullanici_id = ?")->exec
                 <li class="list-group-item">
                     <?php echo htmlspecialchars($bildirim["mesaj"]); ?> 
                     <small class="text-muted">(<?php echo $bildirim["tarih"]; ?>)</small>
-                    <a href="<?php echo $bildirim["tur"] === 'mesaj' ? 'mesajlar.php' : 'ilan_detay.php?id=' . $bildirim["ilgili_id"]; ?>" class="btn btn-sm btn-primary float-end">Görüntüle</a>
+                    
+                    <!-- Bildirim türüne göre yönlendirme -->
+                    <?php if ($bildirim["tur"] === 'mesaj'): ?>
+                        <a href="mesajlar.php" class="btn btn-sm btn-primary float-end">Görüntüle</a>
+                    <?php elseif ($bildirim["tur"] === 'yorum'): ?>
+                        <a href="ilan_detay.php?id=<?php echo $bildirim["ilgili_id"]; ?>" class="btn btn-sm btn-primary float-end">Görüntüle</a>
+                    <?php endif; ?>
                 </li>
             <?php endforeach; ?>
         <?php endif; ?>

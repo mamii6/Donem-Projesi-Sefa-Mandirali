@@ -31,9 +31,9 @@ if ($bildirim["tur"] === "mesaj") {
     exit;
 }
 
-// Eğer türü "yorum" ise yorum detay sayfasına yönlendir
+// Eğer türü "yorum" ise ilan detay sayfasına yönlendir
 if ($bildirim["tur"] === "yorum") {
-    header("Location: yorum_detay.php?id=" . $bildirim["ilgili_id"]);
+    header("Location: ilan_detay.php?id=" . $bildirim["ilgili_id"]);
     exit;
 }
 

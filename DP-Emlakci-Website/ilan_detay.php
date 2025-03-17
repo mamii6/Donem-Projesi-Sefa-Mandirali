@@ -81,6 +81,50 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['kullanici_id'])) {
             <button type="submit" class="btn btn-primary">Gönder</button>
         </form>
     <?php endif; ?>
+    <h3>Yorumlar</h3>
+<?php
+$yorum_stmt = $pdo->prepare("SELECT y.*, k.ad FROM yorumlar y 
+                             JOIN kullanicilar k ON y.kullanici_id = k.id 
+                             WHERE y.ilan_id = ? ORDER BY y.tarih DESC");
+$yorum_stmt->execute([$ilan_id]);
+$yorumlar = $yorum_stmt->fetchAll(PDO::FETCH_ASSOC);
+
+if (empty($yorumlar)): ?>
+    <p>Henüz yorum yok.</p>
+<?php else: ?>
+    <?php foreach ($yorumlar as $yorum): ?>
+        <div class="border p-3 mb-2">
+            <strong><?php echo htmlspecialchars($yorum["ad"]); ?>:</strong>
+            <p><?php echo nl2br(htmlspecialchars($yorum["yorum"])); ?></p>
+            <p>Puan: <?php echo str_repeat("⭐", $yorum["puan"]); ?></p>
+            <small><?php echo date("d.m.Y H:i", strtotime($yorum["tarih"])); ?></small>
+        </div>
+    <?php endforeach; ?>
+<?php endif; ?>
+
+<?php if (isset($_SESSION["kullanici_id"])): ?>
+    <h3>Yorum Yap</h3>
+    <form action="yorum_ekle.php" method="POST">
+        <input type="hidden" name="ilan_id" value="<?php echo $ilan_id; ?>">
+        <div class="mb-3">
+            <label for="yorum" class="form-label">Yorumunuz:</label>
+            <textarea name="yorum" id="yorum" rows="3" class="form-control" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="puan" class="form-label">Puan:</label>
+            <select name="puan" id="puan" class="form-control" required>
+                <option value="1">1 ⭐</option>
+                <option value="2">2 ⭐⭐</option>
+                <option value="3">3 ⭐⭐⭐</option>
+                <option value="4">4 ⭐⭐⭐⭐</option>
+                <option value="5">5 ⭐⭐⭐⭐⭐</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Yorumu Gönder</button>
+    </form>
+<?php else: ?>
+    <p>Yorum yapmak için <a href="login.php">giriş yapmalısınız</a>.</p>
+<?php endif; ?>
 
     <a href="index.php" class="btn btn-secondary mt-3">Geri Dön</a>
 </div>
