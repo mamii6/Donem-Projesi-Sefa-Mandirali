@@ -29,6 +29,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['kullanici_id'])) {
     if (!empty($mesaj)) {
         $stmt = $pdo->prepare("INSERT INTO mesajlar (gonderen_id, alici_id, ilan_id, mesaj) VALUES (?, ?, ?, ?)");
         $stmt->execute([$gonderen_id, $alici_id, $ilan_id, $mesaj]);
+        
+        // Bildirim ekleme
+        $bildirim_stmt = $pdo->prepare("INSERT INTO bildirimler (kullanici_id, mesaj, tur, ilgili_id, goruldu, tarih) 
+                                        VALUES (?, ?, 'mesaj', ?, 0, NOW())");
+        $bildirim_stmt->execute([$alici_id, "Yeni bir mesajınız var!", $ilan_id]);
+        
         echo "<div class='alert alert-success'>Mesaj gönderildi.</div>";
     }
 }
@@ -81,6 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['kullanici_id'])) {
             <button type="submit" class="btn btn-primary">Gönder</button>
         </form>
     <?php endif; ?>
+    
     <h3>Yorumlar</h3>
 <?php
 $yorum_stmt = $pdo->prepare("SELECT y.*, k.ad FROM yorumlar y 

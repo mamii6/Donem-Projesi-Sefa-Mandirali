@@ -11,20 +11,26 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["ilan_id"])) {
     $kullanici_id = $_SESSION["kullanici_id"];
     $ilan_id = $_POST["ilan_id"];
 
-    // Favori daha önce eklenmiş mi kontrol 
+    // Favori daha önce eklenmiş mi kontrol et
     $stmt = $pdo->prepare("SELECT * FROM favoriler WHERE kullanici_id = ? AND ilan_id = ?");
     $stmt->execute([$kullanici_id, $ilan_id]);
 
     if ($stmt->rowCount() == 0) {
         // Favori ekle
-        $stmt = $pdo->prepare("INSERT INTO favoriler (kullanici_id, ilan_id) VALUES (?, ?)");
+        $stmt = $pdo->prepare("INSERT INTO favoriler (kullanici_id, ilan_id, eklenme_tarihi) VALUES (?, ?, NOW())");
         if ($stmt->execute([$kullanici_id, $ilan_id])) {
-            header("Location: index.php?favori=eklendi");
+            header("Location: " . $_SERVER["HTTP_REFERER"] . "?favori=eklendi");
         } else {
-            header("Location: index.php?favori=hata");
+            header("Location: " . $_SERVER["HTTP_REFERER"] . "?favori=hata");
         }
     } else {
-        header("Location: index.php?favori=zaten_var");
+        // Favori zaten ekliyse, kaldır
+        $stmt = $pdo->prepare("DELETE FROM favoriler WHERE kullanici_id = ? AND ilan_id = ?");
+        if ($stmt->execute([$kullanici_id, $ilan_id])) {
+            header("Location: " . $_SERVER["HTTP_REFERER"] . "?favori=silindi");
+        } else {
+            header("Location: " . $_SERVER["HTTP_REFERER"] . "?favori=silme_hata");
+        }
     }
 } else {
     header("Location: index.php");
