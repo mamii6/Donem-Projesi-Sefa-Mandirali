@@ -31,7 +31,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $message = "<div class='alert alert-danger'>Dosya boyutu 2MB'den büyük olamaz!</div>";
         } else {
             $resimAdi = time() . "_" . basename($dosya["name"]);
-            $hedefYol = "uploads/" . $resimAdi;
+            $hedefKlasor = "uploads/ilanlar/";
+            if (!is_dir($hedefKlasor)) 
+            {
+                mkdir($hedefKlasor, 0777, true);
+            }
+            $hedefYol = $hedefKlasor . $dosyaAdi;
+
 
             if (move_uploaded_file($dosya["tmp_name"], $hedefYol)) {
                 $stmt = $pdo->prepare("INSERT INTO ilanlar (baslik, aciklama, fiyat, adres, oda_sayisi, metrekare, kullanici_id, resim) 
