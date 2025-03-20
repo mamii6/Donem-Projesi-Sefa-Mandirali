@@ -15,7 +15,9 @@ if (!isset($_GET["id"]) || empty($_GET["id"])) {
 $mesaj_id = $_GET["id"];
 $kullanici_id = $_SESSION["kullanici_id"];
 
-$stmt = $pdo->prepare("SELECT m.*, g.ad AS gonderen_ad, g.soyad AS gonderen_soyad, a.ad AS alici_ad, a.soyad AS alici_soyad, i.baslik AS ilan_baslik
+// Mesaj detayını çek
+$stmt = $pdo->prepare("SELECT m.*, g.ad AS gonderen_ad, g.soyad AS gonderen_soyad, 
+                        a.ad AS alici_ad, a.soyad AS alici_soyad, i.baslik AS ilan_baslik
                         FROM mesajlar m
                         LEFT JOIN kullanicilar g ON m.gonderen_id = g.id
                         LEFT JOIN kullanicilar a ON m.alici_id = a.id
@@ -29,6 +31,11 @@ if (!$mesaj) {
     exit;
 }
 
+// Mesaj alıcı tarafından açıldığında görüldü olarak işaretle
+if ($mesaj["alici_id"] == $kullanici_id && $mesaj["goruldu"] == 0) {
+    $updateGoruldu = $pdo->prepare("UPDATE mesajlar SET goruldu = 1 WHERE id = ?");
+    $updateGoruldu->execute([$mesaj_id]);
+}
 ?>
 <!DOCTYPE html>
 <html lang="tr">
