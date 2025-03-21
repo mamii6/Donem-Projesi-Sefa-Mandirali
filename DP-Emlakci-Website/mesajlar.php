@@ -344,9 +344,35 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             
             const aliciId = document.getElementById('alici_id').value;
-            const mesaj = document.getElementById('mesaj').value;
+            const mesajInput = document.getElementById('mesaj');
+            const mesaj = mesajInput.value;
             
             if (mesaj.trim() === '') return;
+            
+            // Input'u hemen temizle
+            mesajInput.value = '';
+            
+            // Mesajı hemen sohbete ekle
+            const messageElement = document.createElement('div');
+            messageElement.className = 'message sent';
+            
+            const messageContent = document.createElement('div');
+            messageContent.className = 'message-content';
+            messageContent.textContent = mesaj;
+            
+            const messageTime = document.createElement('div');
+            messageTime.className = 'message-time';
+            
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            messageTime.textContent = `${hours}:${minutes}`;
+            
+            messageElement.appendChild(messageContent);
+            messageElement.appendChild(messageTime);
+            
+            chatMessages.appendChild(messageElement);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
             
             // AJAX ile mesajı gönder
             const formData = new FormData();
@@ -359,39 +385,24 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(response => response.json())
             .then(data => {
-                if (data.success) {
-                    // Mesajı sohbete ekle
-                    const messageElement = document.createElement('div');
-                    messageElement.className = 'message sent';
-                    
-                    const messageContent = document.createElement('div');
-                    messageContent.className = 'message-content';
-                    messageContent.textContent = mesaj;
-                    
-                    const messageTime = document.createElement('div');
-                    messageTime.className = 'message-time';
-                    
-                    const now = new Date();
-                    const hours = now.getHours().toString().padStart(2, '0');
-                    const minutes = now.getMinutes().toString().padStart(2, '0');
-                    messageTime.textContent = `${hours}:${minutes}`;
-                    
-                    messageElement.appendChild(messageContent);
-                    messageElement.appendChild(messageTime);
-                    
-                    chatMessages.appendChild(messageElement);
-                    chatMessages.scrollTop = chatMessages.scrollHeight;
-                    
-                    // Mesaj alanını temizle
-                    document.getElementById('mesaj').value = '';
+                if (!data.success) {
+                    // Mesaj gönderilemediyse hata göster
+                    console.error('Mesaj gönderilemedi');
+                    // İsteğe bağlı: Hata mesajı gösterilebilir veya eklenen mesaj silinebilir
                 }
             })
             .catch(error => {
                 console.error('Error:', error);
+                // İsteğe bağlı: Hata mesajı gösterilebilir veya eklenen mesaj silinebilir
             });
         });
     }
 
+    // Her 3 saniyede bir yeni mesaj kontrolü yap
+    if (document.getElementById('chat-messages')) {
+        setInterval(checkNewMessages, 3000);
+    }
+    
     // Real-time mesaj kontrolü (poling)
     let lastCheck = new Date().getTime();
     
@@ -433,11 +444,6 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => {
             console.error('Error checking new messages:', error);
         });
-    }
-    
-    // Her 3 saniyede bir yeni mesaj kontrolü yap
-    if (document.getElementById('chat-messages')) {
-        setInterval(checkNewMessages, 3000);
     }
 });
 </script>
