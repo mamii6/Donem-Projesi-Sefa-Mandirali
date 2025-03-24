@@ -125,7 +125,7 @@ if (isset($_SESSION["kullanici_id"])) {
             <div class="col-md-4">
                 <div class="card mb-4">
                     <?php if (!empty($ilan["resim"])): ?>
-                        <img src="uploads/<?php echo htmlspecialchars($ilan["resim"]); ?>" class="card-img-top" alt="İlan Resmi">
+                        <img src="uploads/ilanlar/<?php echo htmlspecialchars($ilan["resim"]); ?>" class="card-img-top" alt="İlan Resmi">
                     <?php endif; ?>
                     <div class="card-body">
                         <h5 class="card-title"> <?php echo htmlspecialchars($ilan["baslik"]); ?> </h5>

@@ -62,7 +62,7 @@ $ilanlar = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <?php foreach ($ilanlar as $ilan): ?>
                     <div class="col-md-6">
                         <div class="card mb-4">
-                            <img src="uploads/<?= htmlspecialchars($ilan["resim"]) ?>" class="card-img-top" alt="İlan Resmi">
+                            <img src="uploads/ilanlar/<?= htmlspecialchars($ilan["resim"]) ?>" class="card-img-top" alt="İlan Resmi">
                             <div class="card-body">
                                 <h5 class="card-title"><?= htmlspecialchars($ilan["baslik"]) ?></h5>
                                 <p class="card-text"><strong>Açıklama:</strong> <?= htmlspecialchars($ilan["aciklama"]) ?></p>

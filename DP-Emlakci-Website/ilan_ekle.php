@@ -10,46 +10,45 @@ if (!isset($_SESSION["kullanici_id"])) {
 $message = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $baslik = $_POST["baslik"];
-    $aciklama = $_POST["aciklama"];
-    $fiyat = $_POST["fiyat"];
-    $adres = $_POST["adres"];
-    $oda_sayisi = $_POST["oda_sayisi"];
-    $metrekare = $_POST["metrekare"];
+    $baslik = trim($_POST["baslik"]);
+    $aciklama = trim($_POST["aciklama"]);
+    $fiyat = floatval($_POST["fiyat"]);
+    $adres = trim($_POST["adres"]);
+    $oda_sayisi = intval($_POST["oda_sayisi"]);
+    $metrekare = intval($_POST["metrekare"]);
     $kullanici_id = $_SESSION["kullanici_id"];
     $resimAdi = null;
 
     // Resim yükleme işlemi
     if (!empty($_FILES["resim"]["name"])) {
         $dosya = $_FILES["resim"];
-        $uzanti = pathinfo($dosya["name"], PATHINFO_EXTENSION);
+        $uzanti = strtolower(pathinfo($dosya["name"], PATHINFO_EXTENSION));
         $izinVerilenUzantilar = ["jpg", "jpeg", "png", "gif"];
 
-        if (!in_array(strtolower($uzanti), $izinVerilenUzantilar)) {
+        if (!in_array($uzanti, $izinVerilenUzantilar)) {
             $message = "<div class='alert alert-danger'>Sadece JPG, JPEG, PNG veya GIF formatında resim yükleyebilirsiniz!</div>";
-        } elseif ($dosya["size"] > 4 * 1024 * 1024) { // 2MB sınırı
+        } elseif ($dosya["size"] > 2 * 1024 * 1024) { // 2MB sınırı
             $message = "<div class='alert alert-danger'>Dosya boyutu 2MB'den büyük olamaz!</div>";
         } else {
-            $resimAdi = time() . "_" . basename($dosya["name"]);
+            $resimAdi = time() . "_" . uniqid() . "." . $uzanti;
             $hedefKlasor = "uploads/ilanlar/";
-            if (!is_dir($hedefKlasor)) 
-            {
+            if (!is_dir($hedefKlasor)) {
                 mkdir($hedefKlasor, 0777, true);
             }
-            $hedefYol = $hedefKlasor . $dosyaAdi;
+            $hedefYol = $hedefKlasor . $resimAdi;
 
+if (move_uploaded_file($dosya["tmp_name"], $hedefYol)) {
+    $stmt = $pdo->prepare("INSERT INTO ilanlar (baslik, aciklama, fiyat, adres, oda_sayisi, metrekare, kullanici_id, resim) 
+                           VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    if ($stmt->execute([$baslik, $aciklama, $fiyat, $adres, $oda_sayisi, $metrekare, $kullanici_id, $resimAdi])) {
+        $message = "<div class='alert alert-success'>İlan başarıyla eklendi!</div>";
+    } else {
+        $message = "<div class='alert alert-danger'>İlan eklenirken hata oluştu!</div>";
+    }
+} else {
+    $message = "<div class='alert alert-danger'>Resim yüklenirken hata oluştu!</div>";
+}
 
-            if (move_uploaded_file($dosya["tmp_name"], $hedefYol)) {
-                $stmt = $pdo->prepare("INSERT INTO ilanlar (baslik, aciklama, fiyat, adres, oda_sayisi, metrekare, kullanici_id, resim) 
-                                       VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-                if ($stmt->execute([$baslik, $aciklama, $fiyat, $adres, $oda_sayisi, $metrekare, $kullanici_id, $resimAdi])) {
-                    $message = "<div class='alert alert-success'>İlan başarıyla eklendi!</div>";
-                } else {
-                    $message = "<div class='alert alert-danger'>İlan eklenirken hata oluştu!</div>";
-                }
-            } else {
-                $message = "<div class='alert alert-danger'>Resim yüklenirken hata oluştu!</div>";
-            }
         }
     }
 }
@@ -114,4 +113,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </div>
 
 </body>
-</html>  
+</html>
