@@ -74,9 +74,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['kullanici_id'])) {
     <p><strong>Ad Soyad:</strong> <?php echo htmlspecialchars($ilan["ad"] . " " . $ilan["soyad"]); ?></p>
     <p><strong>Telefon:</strong> <a href="tel:<?php echo htmlspecialchars($ilan["telefon"]); ?>"><?php echo htmlspecialchars($ilan["telefon"]); ?></a></p>
     
-    <?php if (!empty($ilan["resim"])): ?>
-        <img src="uploads/<?php echo htmlspecialchars($ilan["resim"]); ?>" class="img-fluid">
-    <?php endif; ?>
+    <?php if (!empty($ilan["resim"])) : ?>
+    <img src="uploads/ilanlar/<?= $ilan["resim"] ?>" alt="İlan Resmi" class="img-fluid" style="max-width: 400px;">
+<?php endif; ?>
+
+
 
     <?php if (isset($_SESSION['kullanici_id']) && $_SESSION['kullanici_id'] != $ilan['kullanici_id']): ?>
         <h3>İlan Sahibine Mesaj Gönder</h3>
