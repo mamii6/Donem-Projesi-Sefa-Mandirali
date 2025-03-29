@@ -2,6 +2,7 @@
 session_start();
 require_once "db.php";
 
+
 // Filtreleme için değişkenleri al
 $min_fiyat = $_GET['min_fiyat'] ?? '';
 $max_fiyat = $_GET['max_fiyat'] ?? '';
@@ -10,7 +11,7 @@ $metrekare_min = $_GET['metrekare_min'] ?? '';
 $metrekare_max = $_GET['metrekare_max'] ?? '';
 $adres = $_GET['adres'] ?? '';
 
-$query = "SELECT * FROM ilanlar WHERE 1=1";
+$query = "SELECT * FROM ilanlar WHERE durum = 'onaylı'"; 
 $params = [];
 
 if (!empty($min_fiyat)) {

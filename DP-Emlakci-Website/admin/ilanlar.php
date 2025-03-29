@@ -61,8 +61,8 @@ try {
         }
     }
 
-    // 3️⃣ İlanları çek
-    $stmt = $pdo->query("SELECT i.*, k.ad FROM ilanlar i JOIN kullanicilar k ON i.kullanici_id = k.id ORDER BY i.eklenme_tarihi DESC");
+    // 3️⃣ Onaylı ve bekleyen ilanları çek (reddedilenleri hariç tutuyoruz)
+    $stmt = $pdo->query("SELECT i.*, k.ad FROM ilanlar i JOIN kullanicilar k ON i.kullanici_id = k.id WHERE i.durum != 'reddedildi' ORDER BY i.eklenme_tarihi DESC");
     $ilanlar = $stmt->fetchAll();
 } catch (PDOException $e) {
     die("Veritabanı hatası: " . $e->getMessage());
@@ -80,6 +80,8 @@ try {
 <body>
 <div class="container mt-4">
     <h2>İlanlar Yönetimi</h2>
+    
+    <a href="reddedilen_ilanlar.php" class="btn btn-danger mb-3">Reddedilen İlanlar</a>
     
     <table class="table table-bordered">
         <thead>

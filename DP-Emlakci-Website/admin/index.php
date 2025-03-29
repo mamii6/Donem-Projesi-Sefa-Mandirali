@@ -1,7 +1,6 @@
 <?php
 require_once "inc/auth.php";
 require_once "admin_check.php";
-
 ?>
 <!DOCTYPE html>
 <html lang="tr">
@@ -25,6 +24,10 @@ require_once "admin_check.php";
 
         <a href="ilanlar.php" class="btn btn-primary">İlanları Yönet</a>
         <a href="kullanicilar.php" class="btn btn-warning">Kullanıcıları Yönet</a>
+        <a href="reddedilen_ilanlar.php" class="btn btn-danger">Reddedilen İlanlar</a>
+        <a href="bekleyen_ilanlar.php" class="btn btn-secondary">Bekleyen İlanlar</a>
+        
+
     </div>
 </body>
 </html>
