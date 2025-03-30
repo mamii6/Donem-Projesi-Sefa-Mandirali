@@ -1,12 +1,12 @@
 /* General Styles */
 :root {
-    --primary-color: #2c3e50;
-    --secondary-color: #3498db;
-    --accent-color: #e74c3c;
-    --light-color: #f8f9fa;
-    --dark-color: #343a40;
-    --gray-color: #6c757d;
-    --border-color: #dee2e6;
+    --primary-color: #2c2620; /* Dark brown */
+    --secondary-color: #584a41; /* Medium brown */
+    --accent-color: #8c7a6b; /* Light brown accent */
+    --light-color: #f5f2ef; /* Off-white with slight warmth */
+    --dark-color: #1a1614; /* Very dark brown, almost black */
+    --gray-color: #57534e; /* Warm gray with brown undertone */
+    --border-color: #d3cbc2; /* Light brown border */
 }
 
 * {
@@ -29,7 +29,7 @@ a {
 }
 
 a:hover {
-    color: var(--secondary-color);
+    color: #8c7a6b; /* Açık kahverengi aksan rengi */
 }
 
 .container {
@@ -86,24 +86,25 @@ a:hover {
 }
 
 .btn-primary {
-    background-color: var(--secondary-color);
-    color: #fff;
+    background-color: var(--accent-color) !important;
+    color: var(--light-color) !important;
+    border: none !important;
 }
 
 .btn-primary:hover {
-    background-color: var(--primary-color);
-    color: #fff;
+    background-color: var(--secondary-color) !important;
+    color: var(--light-color) !important;
 }
 
 .btn-secondary {
-    background-color: transparent;
-    border: 2px solid var(--secondary-color);
-    color: var(--secondary-color);
+    background-color: transparent !important;
+    border: 2px solid var(--accent-color) !important;
+    color: var(--accent-color) !important;
 }
 
 .btn-secondary:hover {
-    background-color: var(--secondary-color);
-    color: #fff;
+    background-color: var(--accent-color) !important;
+    color: var(--light-color) !important;
 }
 
 /* Header Styles */
@@ -174,23 +175,31 @@ header {
 }
 
 .nav-link.active, .nav-link:hover {
-    color: var(--secondary-color);
+    color: #8c7a6b;
 }
+
+
 
 .nav-link.active:after {
     content: '';
     position: absolute;
     width: 100%;
     height: 2px;
-    background-color: var(--secondary-color);
+    background-color: #8c7a6b;
     bottom: 0;
     left: 0;
 }
 
 .nav-link.btn {
     padding: 8px 20px;
-    color: #fff;
+    color: #f5f2ef;
     border-radius: 5px;
+    background-color: #8c7a6b;
+}
+
+.nav-link.btn:hover {
+    background-color: #584a41;
+    color: #f5f2ef;
 }
 
 /* Hero Section */
