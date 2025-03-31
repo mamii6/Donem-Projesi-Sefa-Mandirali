@@ -139,7 +139,7 @@ include 'includes/header.php';
                                 <img src="img/property-placeholder.jpg" alt="Emlak Görseli">
                             <?php endif; ?>
                             <div class="property-tag">Satılık</div>
-                            <div class="property-price"><?php echo number_format($ilan["fiyat"], 2); ?> TL</div>
+                            <div class="property-price"><?php echo number_format($ilan["fiyat"], 0, ',', '.'); ?> TL</div>
                         </div>
                         <div class="property-details">
                             <h3 class="property-title"><?php echo htmlspecialchars($ilan["baslik"]); ?></h3>
@@ -179,6 +179,12 @@ include 'includes/header.php';
                 </div>
             <?php endforeach; ?>
         </div>
+        
+        <?php if (count($ilanlar) > 6): ?>
+            <div class="text-center mt-4">
+                <a href="emlaklar.php" class="btn btn-outline-primary">Tüm Emlakları Gör</a>
+            </div>
+        <?php endif; ?>
     </div>
 </section>
 
@@ -198,6 +204,7 @@ include 'includes/header.php';
                     </div>
                     <h3 class="service-title">Emlak Alım Satım</h3>
                     <p>Profesyonel ekibimizle emlak alım ve satım süreçlerinizi en güvenli şekilde yönetiyoruz.</p>
+                    <a href="hizmetler.php#alim-satim" class="btn btn-outline-primary mt-3">Detaylı Bilgi</a>
                 </div>
             </div>
 
@@ -208,6 +215,7 @@ include 'includes/header.php';
                     </div>
                     <h3 class="service-title">Kiralama Hizmetleri</h3>
                     <p>Her bütçeye uygun kiralık konut seçenekleri ile hayalinizdeki eve kavuşmanızı sağlıyoruz.</p>
+                    <a href="hizmetler.php#kiralama" class="btn btn-outline-primary mt-3">Detaylı Bilgi</a>
                 </div>
             </div>
 
@@ -218,13 +226,14 @@ include 'includes/header.php';
                     </div>
                     <h3 class="service-title">Yatırım Danışmanlığı</h3>
                     <p>Uzman ekibimizle emlak yatırımlarınız için size en doğru yönlendirmeleri yapıyoruz.</p>
+                    <a href="hizmetler.php#yatirim" class="btn btn-outline-primary mt-3">Detaylı Bilgi</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Testimonials Section (Yeni Eklendi) -->
+<!-- Testimonials Section -->
 <section class="section-padding">
     <div class="container">
         <div class="section-title">
@@ -238,9 +247,9 @@ include 'includes/header.php';
                     <div class="testimonial-img">
                         <img src="img/testimonial-1.jpg" alt="Müşteri Yorumu">
                     </div>
-                    <p class="testimonial-text">Bu platformda hayalimdeki evi bulmak çok kolay oldu. Profesyonel ekibi ve kullanıcı dostu arayüzü ile kesinlikle herkese tavsiye ederim.</p>
+                    <p class="testimonial-text">"Bu platformda hayalimdeki evi bulmak çok kolay oldu. Profesyonel ekibi ve kullanıcı dostu arayüzü ile kesinlikle herkese tavsiye ederim."</p>
                     <h4 class="testimonial-name">Ahmet Yılmaz</h4>
-                    <p class="testimonial-position">Müşteri</p>
+                    <p class="testimonial-position">İstanbul</p>
                 </div>
             </div>
 
@@ -249,9 +258,9 @@ include 'includes/header.php';
                     <div class="testimonial-img">
                         <img src="img/testimonial-2.jpg" alt="Müşteri Yorumu">
                     </div>
-                    <p class="testimonial-text">İlan vermek çok kolay ve hızlı. Sadece birkaç günde evimi satmayı başardım, teşekkürler!</p>
+                    <p class="testimonial-text">"İlan vermek çok kolay ve hızlı. Sadece birkaç günde evimi satmayı başardım, teşekkürler Profesyonel Emlak!"</p>
                     <h4 class="testimonial-name">Ayşe Demir</h4>
-                    <p class="testimonial-position">Müşteri</p>
+                    <p class="testimonial-position">Ankara</p>
                 </div>
             </div>
 
@@ -260,9 +269,9 @@ include 'includes/header.php';
                     <div class="testimonial-img">
                         <img src="img/testimonial-3.jpg" alt="Müşteri Yorumu">
                     </div>
-                    <p class="testimonial-text">Emlak yatırımı konusunda aldığım danışmanlık hizmeti sayesinde doğru kararlar verdim ve kazançlı çıktım.</p>
+                    <p class="testimonial-text">"Emlak yatırımı konusunda aldığım danışmanlık hizmeti sayesinde doğru kararlar verdim ve kazançlı çıktım."</p>
                     <h4 class="testimonial-name">Mehmet Kaya</h4>
-                    <p class="testimonial-position">Yatırımcı</p>
+                    <p class="testimonial-position">İzmir</p>
                 </div>
             </div>
         </div>
@@ -313,7 +322,4 @@ include 'includes/header.php';
 <?php endif; ?>
 
 
-<?php
-
-include 'includes/footer.php';
-?>
+<?php include 'includes/footer.php'; ?>
