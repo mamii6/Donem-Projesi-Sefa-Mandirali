@@ -1,0 +1,363 @@
+/* Profil Sayfası için Özel CSS */
+
+/* Profil Kenar Çubuğu Stilleri */
+.profile-sidebar {
+    background-color: var(--bg-white);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+}
+
+.profile-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 20px;
+    border: 5px solid var(--accent-color);
+}
+
+.profile-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-info {
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.profile-info h4 {
+    margin-bottom: 5px;
+    color: var(--primary-dark);
+    font-weight: 600;
+}
+
+.profile-info p {
+    color: var(--text-medium);
+    margin-bottom: 0;
+}
+
+.profile-menu {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.profile-menu li {
+    margin-bottom: 10px;
+}
+
+.profile-menu li:last-child {
+    margin-bottom: 0;
+}
+
+.profile-menu a {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    border-radius: 5px;
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.profile-menu a i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.profile-menu a:hover {
+    background-color: rgba(139, 90, 43, 0.05);
+    color: var(--primary-color);
+}
+
+.profile-menu a.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.profile-menu a.active i {
+    color: white;
+}
+
+.profile-menu .badge {
+    margin-left: auto;
+    font-weight: 400;
+    padding: 5px 8px;
+    border-radius: 20px;
+}
+
+/* Profil İçerik Alanı */
+.profile-content {
+    background-color: var(--bg-white);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+}
+
+.content-title {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--primary-dark);
+    font-weight: 600;
+}
+
+/* Bilgi Öğeleri */
+.info-item {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.info-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.info-label {
+    display: block;
+    color: var(--text-medium);
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.info-value {
+    display: block;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+/* İstatistik Kartları */
+.stat-card {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--bg-white);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.stat-card-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.stat-card-icon i {
+    font-size: 24px;
+    color: var(--primary-color);
+}
+
+.bg-primary-light {
+    background-color: rgba(139, 90, 43, 0.1);
+}
+
+.bg-danger-light {
+    background-color: rgba(220, 53, 69, 0.1);
+}
+
+.bg-success-light {
+    background-color: rgba(40, 167, 69, 0.1);
+}
+
+.stat-card-info h5 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.stat-card-info p {
+    color: var(--text-medium);
+    margin-bottom: 0;
+}
+
+/* Küçük Emlak Kartları */
+.property-card-small {
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    height: 100px;
+}
+
+.property-card-small:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.property-img-small {
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.property-img-small img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.property-card-small:hover .property-img-small img {
+    transform: scale(1.1);
+}
+
+.property-info-small {
+    padding: 10px 15px;
+    flex-grow: 1;
+}
+
+.property-title-small {
+    font-size: 15px;
+    margin-bottom: 5px;
+    color: var(--primary-dark);
+    font-weight: 500;
+}
+
+.property-price-small {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.property-meta-small {
+    display: flex;
+    font-size: 12px;
+    color: var(--text-medium);
+}
+
+.property-meta-small span {
+    margin-right: 10px;
+}
+
+.property-meta-small span i {
+    margin-right: 3px;
+    color: var(--primary-light);
+}
+
+.stretched-link {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    pointer-events: auto;
+    background-color: transparent;
+    content: "";
+}
+
+/* Aksiyon Kartı */
+.action-card {
+    background-color: var(--bg-white);
+    border-radius: 10px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.action-card-icon {
+    font-size: 40px;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.action-card h4 {
+    margin-bottom: 10px;
+    color: var(--primary-dark);
+}
+
+.action-card p {
+    color: var(--text-medium);
+    margin-bottom: 20px;
+}
+
+/* İstatistik Kartı */
+.stats-card {
+    background-color: var(--bg-white);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.stats-card h4 {
+    margin-bottom: 20px;
+    color: var(--primary-dark);
+    font-weight: 600;
+    font-size: 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.stat-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.stat-label {
+    color: var(--text-medium);
+}
+
+.stat-value {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* Responsive düzenlemeler */
+@media (max-width: 991px) {
+    .profile-sidebar {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 767px) {
+    .profile-img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .stat-card {
+        margin-bottom: 20px;
+    }
+    
+    .property-card-small {
+        margin-bottom: 15px;
+    }
+}

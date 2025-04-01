@@ -74,13 +74,13 @@
                                     <?php endif; ?>
                                 </a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="cikis.php">Çıkış Yap</a></li>
+                                <li><a class="dropdown-item" href="logout.php">Çıkış Yap</a></li>
                             </ul>
                         </div>
                     <?php else: ?>
                         <div class="auth-buttons">
-                            <a class="btn btn-outline-light btn-sm me-2" href="giris.php">Giriş Yap</a>
-                            <a class="btn btn-primary btn-sm" href="kayit.php">Üye Ol</a>
+                            <a class="btn btn-outline-light btn-sm me-2" href="login.php">Giriş Yap</a>
+                            <a class="btn btn-primary btn-sm" href="register.php">Üye Ol</a>
                         </div>
                     <?php endif; ?>
                 </div>
