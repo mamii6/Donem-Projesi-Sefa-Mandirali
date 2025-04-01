@@ -1,7 +1,4 @@
-/*
-* Profesyonel Emlak - Ana Stil Dosyası
-* Kahverengi tonları teması
-*/
+
 
 :root {
     /* Ana renkler */
@@ -11,15 +8,15 @@
     --secondary-color: #D2B48C;    /* Açık kahverengi / Tan */
     --accent-color: #F5DEB3;       /* Wheat rengi - vurgu için */
     
-    /* Nötr renkler */
+    
     --text-dark: #333333;
     --text-medium: #666666;
     --text-light: #999999;
-    --bg-light: #F9F6F2;           /* Çok açık bej */
+    --bg-light: #F9F6F2;          
     --bg-white: #FFFFFF;
     --border-color: #E5E5E5;
     
-    /* Diğer renkler */
+    
     --success: #4CAF50;
     --danger: #F44336;
     --warning: #FFC107;
