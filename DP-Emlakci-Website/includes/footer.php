@@ -24,7 +24,7 @@
                             <li><a href="hizmetler.php"><i class="fas fa-angle-right"></i> Hizmetlerimiz</a></li>
                             <li><a href="hakkimizda.php"><i class="fas fa-angle-right"></i> Hakkımızda</a></li>
                             <li><a href="iletisim.php"><i class="fas fa-angle-right"></i> İletişim</a></li>
-                            <li><a href="blog.php"><i class="fas fa-angle-right"></i> Blog</a></li>
+                           
                         </ul>
                     </div>
                 </div>
@@ -33,9 +33,9 @@
                     <div class="footer-widget">
                         <h3>İletişim Bilgileri</h3>
                         <ul class="footer-contact">
-                            <li><i class="fas fa-map-marker-alt"></i> Bağdat Caddesi No:123, Kadıköy, İstanbul</li>
-                            <li><i class="fas fa-phone-alt"></i> +90 555 123 45 67</li>
-                            <li><i class="fas fa-envelope"></i> info@profesyonelemlak.com</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Yeşilbağ Caddesi No:55, Çarşamba, Samsun</li>
+                            <li><i class="fas fa-phone-alt"></i> +90 532 649 08 55</li>
+                            <li><i class="fas fa-envelope"></i> info@mmsmemlak.com</li>
                             <li><i class="fas fa-clock"></i> Pazartesi - Cumartesi: 09:00 - 18:00</li>
                         </ul>
                     </div>
@@ -47,7 +47,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <p>&copy; <?php echo date('Y'); ?> Profesyonel Emlak. Tüm hakları saklıdır.</p>
+                        <p>&copy; <?php echo date('Y'); ?> MMSM Emlak. Tüm hakları saklıdır.</p>
                     </div>
                     <div class="col-md-6">
                         <ul class="footer-bottom-links">

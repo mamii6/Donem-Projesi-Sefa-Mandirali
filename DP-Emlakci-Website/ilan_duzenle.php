@@ -281,11 +281,11 @@ include 'includes/header.php';
                                             <option value="kiralik" <?php echo (isset($ilan['ilan_tipi']) && $ilan['ilan_tipi'] == 'kiralik') ? 'selected' : ''; ?>>Kiralık</option>
                                         </select>
                                     </div>
-                                    <div class="col-md-6 mb-3">
+                                    <div class="col-md-6 mb-3">   
                                         <label for="emlak_tipi" class="form-label">Emlak Tipi</label>
                                         <select name="emlak_tipi" id="emlak_tipi" class="form-select" required>
                                             <option value="">Seçiniz</option>
-                                            <option value="daire" <?php echo (isset($ilan['emlak_tipi']) && $ilan['emlak_tipi'] == 'daire') ? 'selected' : ''; ?>>Daire</option>
+                                            <option value="daire" <?php echo (isset($ilan['emlak_tipi']) && $ilan['emlak_tipi'] == 'daire') ? 'selected' : ''; ?> >Daire</option>
                                             <option value="mustakil" <?php echo (isset($ilan['emlak_tipi']) && $ilan['emlak_tipi'] == 'mustakil') ? 'selected' : ''; ?>>Müstakil Ev</option>
                                             <option value="villa" <?php echo (isset($ilan['emlak_tipi']) && $ilan['emlak_tipi'] == 'villa') ? 'selected' : ''; ?>>Villa</option>
                                             <option value="arsa" <?php echo (isset($ilan['emlak_tipi']) && $ilan['emlak_tipi'] == 'arsa') ? 'selected' : ''; ?>>Arsa</option>
