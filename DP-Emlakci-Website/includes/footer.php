@@ -4,8 +4,8 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="footer-widget">
-                        <h3>Profesyonel<span>Emlak</span></h3>
-                        <p>Profesyonel Emlak olarak, müşterilerimize en kaliteli hizmeti sunmayı ve emlak sektöründe güvenilir bir rehber olmayı amaçlıyoruz.</p>
+                        <h3>MMSM<span>Emlak</span></h3>
+                        <p>MMSM Emlak olarak, müşterilerimize en kaliteli hizmeti sunmayı ve emlak sektöründe güvenilir bir rehber olmayı amaçlıyoruz.</p>
                         <div class="footer-social">
                             <a href="#"><i class="fab fa-facebook-f"></i></a>
                             <a href="#"><i class="fab fa-instagram"></i></a>

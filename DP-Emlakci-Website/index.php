@@ -230,14 +230,12 @@ include 'includes/header.php';
                                 }
                                 ?>
                                 <div class="property-favorite">
-                                    <form action="favori_ekle.php" method="POST" class="property-favorite-form">
-                                        <input type="hidden" name="ilan_id" value="<?php echo $ilan["id"]; ?>">
-                                        <button type="submit" class="btn-favorite <?php echo $favori_durum ? 'active' : ''; ?>">
-                                            <i class="<?php echo $favori_durum ? 'fas' : 'far'; ?> fa-heart"></i>
-                                        </button>
-                                    </form>
+                                    <button type="button" class="btn-favorite <?php echo $favori_durum ? 'active' : ''; ?>" 
+                                            onclick="toggleFavorite(this, <?php echo $ilan['id']; ?>)">
+                                        <i class="<?php echo $favori_durum ? 'fas' : 'far'; ?> fa-heart"></i>
+                                    </button>
                                 </div>
-                            <?php endif; ?>
+                                <?php endif; ?>
                         </div>
                         <div class="property-details">
                             <h3 class="property-title text-truncate"><?php echo htmlspecialchars($ilan["baslik"]); ?></h3>
@@ -408,3 +406,50 @@ include 'includes/header.php';
 <?php endif; ?>
 
 <?php include 'includes/footer.php'; ?>
+<script>
+function toggleFavorite(button, ilanId) {
+    // AJAX isteği için formData oluştur
+    const formData = new FormData();
+    formData.append('ilan_id', ilanId);
+    
+    // AJAX isteği gönder
+    fetch('favori_ekle_ajax.php', {
+        method: 'POST',
+        body: formData,
+        credentials: 'same-origin' // Çerezleri (session) gönder
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Başarılı işlem
+            if (data.action === 'add') {
+                // Favorilere eklendi, butonun görünümünü güncelle
+                button.classList.add('active');
+                button.querySelector('i').classList.remove('far');
+                button.querySelector('i').classList.add('fas');
+            } else if (data.action === 'remove') {
+                // Favorilerden çıkarıldı, butonun görünümünü güncelle
+                button.classList.remove('active');
+                button.querySelector('i').classList.remove('fas');
+                button.querySelector('i').classList.add('far');
+            }
+            
+            // İsteğe bağlı: Başarılı bildirim göster
+            // console.log(data.message);
+        } else {
+            // Hata durumu
+            if (data.message === 'login_required') {
+                // Giriş yapılmadıysa giriş sayfasına yönlendir
+                window.location.href = 'giris.php';
+            } else {
+                // Diğer hata mesajlarını göster
+                alert('Hata: ' + data.message);
+            }
+        }
+    })
+    .catch(error => {
+        console.error('Bağlantı hatası:', error);
+        alert('İşlem sırasında bir hata oluştu. Lütfen tekrar deneyin.');
+    });
+}
+</script>

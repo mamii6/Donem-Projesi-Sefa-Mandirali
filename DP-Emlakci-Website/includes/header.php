@@ -34,7 +34,7 @@
                 <!-- Orta - Logo -->
                 <div class="logo">
                     <a href="index.php">
-                        <h1>Profesyonel<span>Emlak</span></h1>
+                        <h1>MMSM<span>Emlak</span></h1>
                     </a>
                 </div>
                 
@@ -60,7 +60,7 @@
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li><a class="dropdown-item" href="profil.php">Profilim</a></li>
                                 <li><a class="dropdown-item" href="ilanlarim.php">İlanlarım</a></li>
-                                <li><a class="dropdown-item" href="favorilerim.php">Favorilerim</a></li>
+                                <li><a class="dropdown-item" href="favoriler.php">Favorilerim</a></li>
                                 <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#userAccountModal">
                                     Bildirimler
                                     <?php if (isset($okunmamis_bildirim_sayisi) && $okunmamis_bildirim_sayisi > 0): ?>
