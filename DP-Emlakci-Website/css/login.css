@@ -1,0 +1,324 @@
+/* Login Sayfası Stilleri */
+
+/* Ana Konteyner */
+.login-section {
+    padding: 80px 0;
+    background-color: var(--bg-light);
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+.login-form-container {
+    background-color: var(--bg-white);
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-form-container:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, var(--primary-color), var(--primary-light));
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-header h2 {
+    color: var(--primary-dark);
+    margin-bottom: 10px;
+}
+
+.login-subtitle {
+    color: var(--text-medium);
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+/* Form Elemanları */
+.login-form label {
+    font-weight: 500;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+}
+
+.login-form .input-group {
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+}
+
+.login-form .input-group-text {
+    border: none;
+    color: var(--text-medium);
+}
+
+.login-form .form-control {
+    border: none;
+    padding: 12px 15px;
+    height: auto;
+    font-size: 15px;
+    background-color: var(--bg-white);
+    border-left: none;
+}
+
+.login-form .form-control:focus {
+    box-shadow: none;
+    border-color: var(--primary-light);
+    background-color: var(--bg-white);
+}
+
+.login-form .toggle-password {
+    border: none;
+    background-color: var(--bg-white);
+    color: var(--text-medium);
+    cursor: pointer;
+}
+
+.login-form .toggle-password:hover {
+    color: var(--primary-color);
+}
+
+.login-form .form-check-label {
+    color: var(--text-medium);
+    font-size: 14px;
+}
+
+.login-form .form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.login-form .forgot-password-link {
+    color: var(--primary-color);
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.login-form .forgot-password-link:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+.login-form .btn-primary {
+    padding: 12px 15px;
+    font-weight: 500;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.login-form .btn-primary:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+/* Sosyal Medya Giriş */
+.social-login-separator {
+    text-align: center;
+    margin: 25px 0;
+    position: relative;
+}
+
+.social-login-separator:before,
+.social-login-separator:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: calc(50% - 30px);
+    height: 1px;
+    background-color: var(--border-color);
+}
+
+.social-login-separator:before {
+    left: 0;
+}
+
+.social-login-separator:after {
+    right: 0;
+}
+
+.social-login-separator span {
+    display: inline-block;
+    padding: 0 15px;
+    background-color: var(--bg-white);
+    position: relative;
+    color: var(--text-medium);
+    font-size: 14px;
+}
+
+.social-login-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.social-login-btn {
+    padding: 12px 15px;
+    font-weight: 500;
+    text-align: center;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.facebook-btn {
+    color: #3b5998;
+    border-color: #3b5998;
+}
+
+.facebook-btn:hover {
+    background-color: #3b5998;
+    border-color: #3b5998;
+    color: white;
+}
+
+.google-btn {
+    color: #db4437;
+    border-color: #db4437;
+}
+
+.google-btn:hover {
+    background-color: #db4437;
+    border-color: #db4437;
+    color: white;
+}
+
+/* Kayıt Linki */
+.register-link-container {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-medium);
+    font-size: 14px;
+}
+
+.register-link {
+    color: var(--primary-color);
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.register-link:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+/* Animasyonlar */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Form Doğrulama */
+.login-form .form-control.is-valid,
+.login-form .form-control.is-invalid {
+    background-position: right calc(0.375em + 0.85rem) center;
+}
+
+/* Şifremi Unuttum Modal */
+.modal-header {
+    background-color: var(--bg-light);
+    border-bottom: none;
+}
+
+.modal-title {
+    color: var(--primary-dark);
+    font-weight: 600;
+}
+
+.modal-body {
+    padding: 25px 30px;
+}
+
+.modal-body p {
+    color: var(--text-medium);
+    margin-bottom: 20px;
+}
+
+/* Responsive Düzenlemeler */
+@media (max-width: 767px) {
+    .login-form-container {
+        padding: 30px 20px;
+    }
+    
+    .login-section {
+        padding: 50px 0;
+    }
+    
+    .login-header h2 {
+        font-size: 24px;
+    }
+    
+    .login-subtitle {
+        font-size: 14px;
+    }
+}
+
+/* IE11 uyumluluğu için düzeltmeler */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .login-form-container:before {
+        top: -5px;
+    }
+    
+    .social-login-separator span {
+        margin-top: -10px;
+    }
+}
+
+/* Ek Özelleştirmeler */
+.login-form .input-group-text,
+.login-form .form-control,
+.login-form .toggle-password {
+    background-color: #f8f9fa; /* Bootstrap bg-light rengi */
+}
+
+.login-form .form-control:focus {
+    background-color: #fff;
+}
+
+/* Hata ve Başarı Mesajları */
+.alert {
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.alert-danger {
+    background-color: #fff5f5;
+    border-color: #ffe0e0;
+    color: #e53e3e;
+}
+
+.alert-success {
+    background-color: #f0fff4;
+    border-color: #c6f6d5;
+    color: #38a169;
+}
+
+.alert .btn-close {
+    font-size: 12px;
+}
