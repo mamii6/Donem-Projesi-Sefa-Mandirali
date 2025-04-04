@@ -329,7 +329,7 @@ include 'includes/header.php';
             <div class="col-lg-4 col-md-6">
                 <div class="testimonial-box">
                     <div class="testimonial-img">
-                        <img src="img/testimonial-1.jpg" alt="Müşteri Yorumu">
+                        <img src="img/logo.png" alt="Müşteri Yorumu">
                     </div>
                     <p class="testimonial-text">"Bu platformda hayalimdeki evi bulmak çok kolay oldu. Profesyonel ekibi ve kullanıcı dostu arayüzü ile kesinlikle herkese tavsiye ederim."</p>
                     <h4 class="testimonial-name">Ahmet Yılmaz</h4>
@@ -340,7 +340,7 @@ include 'includes/header.php';
             <div class="col-lg-4 col-md-6">
                 <div class="testimonial-box">
                     <div class="testimonial-img">
-                        <img src="img/testimonial-2.jpg" alt="Müşteri Yorumu">
+                        <img src="img/logo.png" alt="Müşteri Yorumu">
                     </div>
                     <p class="testimonial-text">"İlan vermek çok kolay ve hızlı. Sadece birkaç günde evimi satmayı başardım, teşekkürler Profesyonel Emlak!"</p>
                     <h4 class="testimonial-name">Ayşe Demir</h4>
@@ -351,7 +351,7 @@ include 'includes/header.php';
             <div class="col-lg-4 col-md-6">
                 <div class="testimonial-box">
                     <div class="testimonial-img">
-                        <img src="img/testimonial-3.jpg" alt="Müşteri Yorumu">
+                        <img src="img/logo.png" alt="Müşteri Yorumu">
                     </div>
                     <p class="testimonial-text">"Emlak yatırımı konusunda aldığım danışmanlık hizmeti sayesinde doğru kararlar verdim ve kazançlı çıktım."</p>
                     <h4 class="testimonial-name">Mehmet Kaya</h4>
@@ -440,7 +440,7 @@ function toggleFavorite(button, ilanId) {
             // Hata durumu
             if (data.message === 'login_required') {
                 // Giriş yapılmadıysa giriş sayfasına yönlendir
-                window.location.href = 'giris.php';
+                window.location.href = 'login.php';
             } else {
                 // Diğer hata mesajlarını göster
                 alert('Hata: ' + data.message);

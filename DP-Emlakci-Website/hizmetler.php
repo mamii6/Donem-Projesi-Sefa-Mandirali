@@ -54,7 +54,7 @@ include 'includes/header.php';
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6 mb-4 mb-lg-0">
-                <img src="img/service-purchase.jpg" alt="Emlak Alım Satım" class="img-fluid rounded shadow">
+                <img src="img/logo.png" alt="Emlak Alım Satım" class="img-fluid rounded shadow">
             </div>
             <div class="col-lg-6">
                 <div class="service-details">
@@ -78,7 +78,7 @@ include 'includes/header.php';
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
-                <img src="img/service-rental.jpg" alt="Kiralama Hizmetleri" class="img-fluid rounded shadow">
+                <img src="img/logo.png" alt="Kiralama Hizmetleri" class="img-fluid rounded shadow">
             </div>
             <div class="col-lg-6 order-lg-1">
                 <div class="service-details">
@@ -102,7 +102,7 @@ include 'includes/header.php';
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6 mb-4 mb-lg-0">
-                <img src="img/service-investment.jpg" alt="Yatırım Danışmanlığı" class="img-fluid rounded shadow">
+                <img src="img/logo.png" alt="Yatırım Danışmanlığı" class="img-fluid rounded shadow">
             </div>
             <div class="col-lg-6">
                 <div class="service-details">
@@ -126,7 +126,7 @@ include 'includes/header.php';
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
-                <img src="img/service-consultation.jpg" alt="Emlak Danışmanlığı" class="img-fluid rounded shadow">
+                <img src="img/logo.png" alt="Emlak Danışmanlığı" class="img-fluid rounded shadow">
             </div>
             <div class="col-lg-6 order-lg-1">
                 <div class="service-details">
