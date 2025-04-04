@@ -1,0 +1,242 @@
+/* Timeline Stili */
+.timeline {
+    position: relative;
+    padding: 20px 0;
+}
+
+.timeline:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 3px;
+    background-color: var(--primary-light);
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.timeline-content {
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.timeline-content:before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    width: 20px;
+    height: 20px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+}
+
+.timeline-content.right:before {
+    right: -40px;
+}
+
+.timeline-content.left:before {
+    left: -40px;
+}
+
+.timeline-date {
+    display: inline-block;
+    padding: 5px 15px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.timeline-title {
+    margin-bottom: 10px;
+    color: var(--primary-dark);
+}
+
+/* Ekip Üyeleri Stili */
+.team-box {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.team-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.team-img {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px;
+    overflow: hidden;
+    border: 5px solid var(--accent-color);
+}
+
+.team-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.team-box:hover .team-img img {
+    transform: scale(1.1);
+}
+
+.team-social {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(139, 90, 43, 0.8);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.team-box:hover .team-social {
+    opacity: 1;
+}
+
+.team-social a {
+    width: 36px;
+    height: 36px;
+    background-color: white;
+    color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+    transition: all 0.3s ease;
+}
+
+.team-social a:hover {
+    background-color: var(--primary-dark);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.team-box h4 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: var(--primary-dark);
+}
+
+.team-box p {
+    color: var(--text-medium);
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+/* İstatistik Kutular Stili */
+.stats-box {
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.stats-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stats-box h3 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.stats-box p {
+    margin-bottom: 0;
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+.counter {
+    animation: count-up 2.5s ease-in-out forwards;
+}
+
+@keyframes count-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Düzenlemeler */
+@media (max-width: 991px) {
+    .timeline:before {
+        left: 20px;
+    }
+    
+    .timeline-content.right:before,
+    .timeline-content.left:before {
+        left: -30px;
+        right: auto;
+    }
+    
+    .timeline-content.left {
+        text-align: left;
+    }
+}
+
+@media (max-width: 767px) {
+    .team-img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .stats-box {
+        margin-bottom: 30px;
+    }
+    
+    .stats-box h3 {
+        font-size: 30px;
+    }
+}
+
+/* Animasyon */
+.fade-in-up {
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+.delay-4 { animation-delay: 0.8s; }
