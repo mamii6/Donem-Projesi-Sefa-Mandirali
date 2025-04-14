@@ -152,7 +152,7 @@ include 'includes/header.php';
                     <ul class="profile-menu">
                         <li><a href="profil.php"><i class="fas fa-user"></i> Profilim</a></li>
                         <li><a href="ilanlarim.php"><i class="fas fa-home"></i> İlanlarım <span class="badge bg-primary"><?php echo $ilan_sayisi; ?></span></a></li>
-                        <li><a href="favorilerim.php"><i class="fas fa-heart"></i> Favorilerim <span class="badge bg-danger"><?php echo $favori_sayisi; ?></span></a></li>
+                        <li><a href="favoriler.php"><i class="fas fa-heart"></i> Favorilerim <span class="badge bg-danger"><?php echo $favori_sayisi; ?></span></a></li>
                         <li><a href="mesajlar.php" class="active"><i class="fas fa-envelope"></i> Mesajlarım <?php if($total_unread > 0): ?><span class="badge bg-danger"><?php echo $total_unread; ?></span><?php endif; ?></a></li>
                         <li><a href="profil_duzenle.php"><i class="fas fa-cog"></i> Ayarlar</a></li>
                         <li><a href="cikis.php"><i class="fas fa-sign-out-alt"></i> Çıkış Yap</a></li>
