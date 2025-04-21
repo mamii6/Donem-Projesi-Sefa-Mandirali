@@ -71,6 +71,211 @@ function getValueOrDefault($value, $default = 'Belirtilmemiş') {
 include 'includes/header.php';
 ?>
 <link rel="stylesheet" href="css/profil.css">
+
+<style>
+.property-card {
+    background-color: #252525;
+    color: #e0e0e0;
+    border: 1px solid #333;
+}
+
+.property-details {
+    background-color: #252525;
+    color: #e0e0e0;
+}
+
+.property-title {
+    color: #fff;
+}
+
+.text-muted {
+    color: #aaa !important;
+}
+
+.alert-info {
+    background-color: #1a2a36;
+    color: #a8c7df;
+    border-color: #274967;
+}
+.card {
+    background-color: #252525 !important;
+    color: #e0e0e0;
+    border: 1px solid #333;
+}
+
+.card-header {
+    background-color: #1a1a1a !important;
+    border-bottom: 1px solid #333;
+    color: #fff;
+}
+
+.card-body {
+    background-color: #252525 !important;
+    color: #e0e0e0;
+}
+
+.content-section {
+    background-color: #252525;
+    color: #e0e0e0;
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.content-title {
+    color: #fff;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.profile-sidebar {
+    background-color: #252525;
+    border: 1px solid #333;
+}
+
+.profile-menu {
+    background-color: #252525;
+}
+
+.profile-menu a {
+    color: #e0e0e0;
+    border-bottom: 1px solid #333;
+}
+
+.profile-menu a:hover, 
+.profile-menu a.active {
+    background-color: #333;
+    color: #fff;
+}
+
+.profile-info {
+    border-bottom: 1px solid #333;
+}
+
+.profile-info h4, 
+.profile-info p {
+    color: #fff;
+}
+
+/* Form elemanları için koyu tema ayarları */
+.form-control, 
+.form-select {
+    background-color: #333;
+    border: 1px solid #444;
+    color: #e0e0e0;
+}
+
+.form-control:focus, 
+.form-select:focus {
+    background-color: #3a3a3a;
+    border-color: #555;
+    color: #fff;
+    box-shadow: 0 0 0 0.25rem rgba(66, 70, 73, 0.25);
+}
+
+.form-text {
+    color: #aaa;
+}
+
+.form-label {
+    color: #e0e0e0;
+}
+
+/* Diğer bileşenlerin düzenlemeleri */
+.alert-success {
+    background-color: #1e392a;
+    color: #a3cfbb;
+    border-color: #2c5942;
+}
+
+.alert-danger {
+    background-color: #392a2a;
+    color: #cfb0b0;
+    border-color: #5c3838;
+}
+
+.bg-light {
+    background-color: #1a1a1a !important;
+    color: #fff;
+}
+
+/* Sayfalama düğmeleri için koyu tema */
+.pagination .page-link {
+    background-color: #333;
+    border-color: #444;
+    color: #e0e0e0;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    color: #fff;
+}
+
+.pagination .page-item.disabled .page-link {
+    background-color: #252525;
+    border-color: #333;
+    color: #666;
+}
+
+.page-header {
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+.breadcrumb {
+    color: #aaa;
+}
+
+.breadcrumb a {
+    color: #aaa;
+}
+
+.breadcrumb a:hover {
+    color: #fff;
+}
+
+/* Butonlar için opsiyonel düzenlemeler */
+.btn-outline-secondary {
+    color: #e0e0e0;
+    border-color: #444;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #444;
+    color: #fff;
+}
+
+/* Ek stillemeler */
+.border {
+    border-color: #444 !important;
+}
+
+/* Badge için düzenlemeler */
+.badge.bg-primary {
+    background-color: #0d6efd !important;
+}
+
+.badge.bg-danger {
+    background-color: #dc3545 !important;
+}
+
+.badge.bg-success {
+    background-color: #198754 !important;
+}
+
+.badge.bg-warning {
+    background-color: #ffc107 !important;
+    color: #212529;
+}
+
+/* Mevcut görsel için çerçeve */
+.border.p-2.rounded {
+    background-color: #333;
+}
+<style>
+</style>
 <!-- Page Header -->
 <div class="page-header">
     <div class="container">
