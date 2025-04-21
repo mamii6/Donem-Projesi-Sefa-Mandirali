@@ -59,13 +59,14 @@ Tarayıcında localhost/proje_dizini/index.php adresine giderek projeyi başlat.
 📸 Görseller
 ![image](https://github.com/user-attachments/assets/27feb981-5855-4fa2-b39c-be20b6e30f4f)
 ![image](https://github.com/user-attachments/assets/266c4c7f-269d-40bb-b03c-582240514c9d)
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/c7d6f78c-da64-47c2-a2fc-198f0934b734)
+
 
 
 
 
 📬 İletişim
-Muhammet Mustafa Sefa Mandıralı
+Muhammet M.S Mandıralı
 GitHub: @mamii6
 
 Bu proje, Bilgisayar Programcılığı Dönem Projesi kapsamında geliştirilmiştir.
