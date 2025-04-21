@@ -48,19 +48,281 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["iletisim_formu"])) {
         }
     }
 }
-
-
 ?>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <?php include 'includes/header.php'; ?>
-
-
-
 
 <link rel="stylesheet" href="css/styles.css">
 
+<!-- Ek Stil Tanımlamaları -->
+<style>
+    body {
+        font-family: 'Quicksand', sans-serif;
+        background-color: #121212;
+        color: #ffffff;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: 700;
+        color: #ffffff;
+    }
+    
+    p {
+        color: #b3b3b3;
+    }
+    
+    .contact-info-box {
+        background-color: #252525;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        text-align: center;
+    }
+    
+    .contact-icon {
+        background-color: #d4af37 !important;
+        width: 70px;
+        height: 70px;
+        margin: 0 auto 20px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .contact-icon i {
+        color: #121212 !important;
+    }
+    
+    .bg-light {
+        background-color: #1e1e1e !important;
+    }
+    
+    .content-title {
+        color: #ffffff;
+        margin-bottom: 20px;
+    }
+    
+    .content-text {
+        color: #b3b3b3;
+    }
+    
+    .form-label {
+        color: #ffffff;
+    }
+    
+    .form-control, .form-select {
+        background-color: #333;
+        border-color: #333333;
+        color: #ffffff;
+    }
+    
+    .form-control:focus, .form-select:focus {
+        background-color: #3a3a3a;
+        border-color: #d4af37;
+        color: #ffffff;
+        box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25);
+    }
+    
+    .form-check-input {
+        background-color: #333;
+        border-color: #b3b3b3;
+    }
+    
+    .form-check-input:checked {
+        background-color: #d4af37;
+        border-color: #d4af37;
+    }
+    
+    .form-check-label {
+        color: #b3b3b3;
+    }
+    
+    .form-check-label a {
+        color: #d4af37;
+    }
+    
+    .btn-primary {
+        background-color: #d4af37;
+        border-color: #d4af37;
+        color: #121212;
+    }
+    
+    .btn-primary:hover {
+        background-color: #e6c458;
+        border-color: #e6c458;
+    }
+    
+    .card {
+        background-color: #252525;
+        border-color: #333333;
+    }
+    
+    .card-header {
+        background-color: #1e1e1e;
+        border-bottom: 1px solid #333333;
+        color: #ffffff;
+    }
+    
+    .list-unstyled li {
+        color: #b3b3b3;
+        border-bottom-color: #333333 !important;
+    }
+    
+    .border-bottom {
+        border-bottom-color: #333333 !important;
+    }
+    
+    .text-danger {
+        color: #f44336 !important;
+    }
+    
+    .alert-success {
+        background-color: rgba(56, 161, 105, 0.1);
+        border-color: rgba(56, 161, 105, 0.3);
+        color: #38a169;
+    }
+    
+    .alert-danger {
+        background-color: rgba(229, 62, 62, 0.1);
+        border-color: rgba(229, 62, 62, 0.3);
+        color: #e53e3e;
+    }
+    
+    .branch-box {
+        background-color: #252525;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        margin-bottom: 20px;
+    }
+    
+    .branch-img {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .branch-img img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+    
+    .branch-box:hover .branch-img img {
+        transform: scale(1.1);
+    }
+    
+    .branch-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 15px;
+        background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .branch-box:hover .branch-overlay {
+        opacity: 1;
+    }
+    
+    .branch-info {
+        padding: 20px;
+    }
+    
+    .branch-info h4 {
+        margin-bottom: 15px;
+        color: #ffffff;
+    }
+    
+    .branch-info address {
+        color: #b3b3b3;
+        margin-bottom: 0;
+    }
+    
+    /* Accordion stili */
+    .accordion-item {
+        background-color: #252525;
+        border-color: #333333;
+    }
+    
+    .accordion-button {
+        background-color: #1e1e1e;
+        color: #ffffff;
+        box-shadow: none;
+    }
+    
+    .accordion-button:not(.collapsed) {
+        background-color: #d4af37;
+        color: #121212;
+    }
+    
+    .accordion-button:focus {
+        box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25);
+        border-color: #d4af37;
+    }
+    
+    .accordion-button::after {
+        background-color: #d4af37;
+        border-radius: 50%;
+        background-position: center;
+        background-size: 14px;
+    }
+    
+    .accordion-body {
+        background-color: #252525;
+        color: #b3b3b3;
+    }
+    
+    /* Modal stili */
+    .modal-content {
+        background-color: #252525;
+        color: #ffffff;
+    }
+    
+    .modal-header {
+        border-bottom-color: #333333;
+    }
+    
+    .modal-footer {
+        border-top-color: #333333;
+    }
+    
+    .btn-secondary {
+        background-color: #3a3a3a;
+        border-color: #3a3a3a;
+    }
+    
+    .btn-secondary:hover {
+        background-color: #4a4a4a;
+        border-color: #4a4a4a;
+    }
+    
+    .btn-close {
+        filter: invert(1) grayscale(100%) brightness(200%);
+    }
+    
+    .bg-light .content-title, .bg-light h5 {
+        color: #ffffff;
+    }
+    
+    /* Map container stili */
+    .map-container {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+</style>
+
 <!-- Hero Section -->
-<section class="page-header" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../img/page-header-bg.jpg');">
+<section class="page-header" style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../img/page-header-bg.jpg');">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -82,8 +344,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["iletisim_formu"])) {
         <div class="row">
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="contact-info-box h-100">
-                    <div class="contact-icon" style="background-color: var(--accent-color);">
-                        <i class="fas fa-map-marker-alt fa-2x" style="color: var(--primary-dark);"></i>
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt fa-2x"></i>
                     </div>
                     <h3>Adresimiz</h3>
                     <p>Atatürk Caddesi No:123<br>Merkez / İstanbul</p>
@@ -92,8 +354,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["iletisim_formu"])) {
             
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="contact-info-box h-100">
-                    <div class="contact-icon" style="background-color: var(--accent-color);">
-                        <i class="fas fa-phone-alt fa-2x" style="color: var(--primary-dark);"></i>
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt fa-2x"></i>
                     </div>
                     <h3>Bizi Arayın</h3>
                     <p>Telefon: +90 212 345 67 89<br>Fax: +90 212 345 67 90</p>
@@ -102,8 +364,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["iletisim_formu"])) {
             
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="contact-info-box h-100">
-                    <div class="contact-icon" style="background-color: var(--accent-color);">
-                        <i class="fas fa-envelope fa-2x" style="color: var(--primary-dark);"></i>
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope fa-2x"></i>
                     </div>
                     <h3>E-posta Adresimiz</h3>
                     <p>info@profesyonelemlak.com<br>satis@profesyonelemlak.com</p>
@@ -189,15 +451,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["iletisim_formu"])) {
                         <div class="card-body">
                             <ul class="list-unstyled mb-0">
                                 <li class="d-flex justify-content-between py-2 border-bottom">
-                                    <span><i class="fas fa-clock me-2" style="color: var(--primary-color);"></i> Pazartesi - Cuma</span>
+                                    <span><i class="fas fa-clock me-2" style="color: #d4af37;"></i> Pazartesi - Cuma</span>
                                     <span>09:00 - 18:00</span>
                                 </li>
                                 <li class="d-flex justify-content-between py-2 border-bottom">
-                                    <span><i class="fas fa-clock me-2" style="color: var(--primary-color);"></i> Cumartesi</span>
+                                    <span><i class="fas fa-clock me-2" style="color: #d4af37;"></i> Cumartesi</span>
                                     <span>10:00 - 15:00</span>
                                 </li>
                                 <li class="d-flex justify-content-between py-2">
-                                    <span><i class="fas fa-clock me-2" style="color: var(--primary-color);"></i> Pazar</span>
+                                    <span><i class="fas fa-clock me-2" style="color: #d4af37;"></i> Pazar</span>
                                     <span class="text-danger">Kapalı</span>
                                 </li>
                             </ul>
@@ -239,9 +501,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["iletisim_formu"])) {
                     <div class="branch-info">
                         <h4>İstanbul Merkez</h4>
                         <address>
-                            <i class="fas fa-map-marker-alt me-2" style="color: var(--primary-color);"></i> Atatürk Caddesi No:123, Merkez / İstanbul<br>
-                            <i class="fas fa-phone-alt me-2" style="color: var(--primary-color);"></i> +90 212 345 67 89<br>
-                            <i class="fas fa-envelope me-2" style="color: var(--primary-color);"></i> istanbul@profesyonelemlak.com
+                            <i class="fas fa-map-marker-alt me-2" style="color: #d4af37;"></i> Atatürk Caddesi No:123, Merkez / İstanbul<br>
+                            <i class="fas fa-phone-alt me-2" style="color: #d4af37;"></i> +90 212 345 67 89<br>
+                            <i class="fas fa-envelope me-2" style="color: #d4af37;"></i> istanbul@profesyonelemlak.com
                         </address>
                     </div>
                 </div>
@@ -260,9 +522,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["iletisim_formu"])) {
                     <div class="branch-info">
                         <h4>Ankara Şubesi</h4>
                         <address>
-                            <i class="fas fa-map-marker-alt me-2" style="color: var(--primary-color);"></i> Kızılay Meydanı No:45, Çankaya / Ankara<br>
-                            <i class="fas fa-phone-alt me-2" style="color: var(--primary-color);"></i> +90 312 345 67 89<br>
-                            <i class="fas fa-envelope me-2" style="color: var(--primary-color);"></i> ankara@profesyonelemlak.com
+                            <i class="fas fa-map-marker-alt me-2" style="color: #d4af37;"></i> Kızılay Meydanı No:45, Çankaya / Ankara<br>
+                            <i class="fas fa-phone-alt me-2" style="color: #d4af37;"></i> +90 312 345 67 89<br>
+                            <i class="fas fa-envelope me-2" style="color: #d4af37;"></i> ankara@profesyonelemlak.com
                         </address>
                     </div>
                 </div>
@@ -281,9 +543,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["iletisim_formu"])) {
                     <div class="branch-info">
                         <h4>İzmir Şubesi</h4>
                         <address>
-                            <i class="fas fa-map-marker-alt me-2" style="color: var(--primary-color);"></i> Alsancak Limanı Cad. No:78, Konak / İzmir<br>
-                            <i class="fas fa-phone-alt me-2" style="color: var(--primary-color);"></i> +90 232 345 67 89<br>
-                            <i class="fas fa-envelope me-2" style="color: var(--primary-color);"></i> izmir@profesyonelemlak.com
+                            <i class="fas fa-map-marker-alt me-2" style="color: #d4af37;"></i> Alsancak Limanı Cad. No:78, Konak / İzmir<br>
+                            <i class="fas fa-phone-alt me-2" style="color: #d4af37;"></i> +90 232 345 67 89<br>
+                            <i class="fas fa-envelope me-2" style="color: #d4af37;"></i> izmir@profesyonelemlak.com
                         </address>
                     </div>
                 </div>

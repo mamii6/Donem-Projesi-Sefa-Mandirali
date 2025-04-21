@@ -1,17 +1,17 @@
-/* Kayıt Sayfası Stilleri */
+/* Kayıt Sayfası Stilleri - Dark Mode */
 
 /* Ana Konteyner */
 .register-section {
     padding: 80px 0;
-    background-color: var(--bg-light);
+    background-color: #1e1e1e;
     min-height: 80vh;
 }
 
 .register-form-container {
-    background-color: var(--bg-white);
+    background-color: #252525;
     border-radius: 10px;
     padding: 40px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -24,7 +24,7 @@
     left: 0;
     width: 100%;
     height: 5px;
-    background: linear-gradient(to right, var(--primary-color), var(--primary-light));
+    background: linear-gradient(to right, #d4af37, #e6c458);
 }
 
 .register-header {
@@ -33,37 +33,43 @@
 }
 
 .register-header h2 {
-    color: var(--primary-dark);
+    color: #ffffff;
     margin-bottom: 10px;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
 }
 
 .register-subtitle {
-    color: var(--text-medium);
+    color: #b3b3b3;
     font-size: 15px;
     margin-bottom: 20px;
+    font-family: 'Quicksand', sans-serif;
 }
 
 /* Form Elemanları */
 .register-form label {
     font-weight: 500;
-    color: var(--text-dark);
+    color: #ffffff;
     margin-bottom: 8px;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .register-form .form-text {
     font-size: 12px;
-    color: var(--text-light);
+    color: #999999;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .register-form .input-group {
     border-radius: 5px;
     overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .register-form .input-group-text {
     border: none;
-    color: var(--text-medium);
+    color: #b3b3b3;
+    background-color: #333;
 }
 
 .register-form .form-control,
@@ -72,50 +78,65 @@
     padding: 12px 15px;
     height: auto;
     font-size: 15px;
-    background-color: var(--bg-white);
+    background-color: #333;
+    color: #ffffff;
     border-left: none;
 }
 
 .register-form .form-control:focus,
 .register-form .form-select:focus {
     box-shadow: none;
-    border-color: var(--primary-light);
-    background-color: var(--bg-white);
+    border-color: #e6c458;
+    background-color: #3a3a3a;
+    outline: none;
 }
 
 .register-form .toggle-password,
 .register-form .toggle-password-confirm {
     border: none;
-    background-color: var(--bg-white);
-    color: var(--text-medium);
+    background-color: #333;
+    color: #b3b3b3;
     cursor: pointer;
 }
 
 .register-form .toggle-password:hover,
 .register-form .toggle-password-confirm:hover {
-    color: var(--primary-color);
+    color: #d4af37;
 }
 
 .register-form .form-check-label {
-    color: var(--text-medium);
+    color: #b3b3b3;
     font-size: 14px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.register-form .form-check-input {
+    background-color: #333;
+    border-color: #b3b3b3;
 }
 
 .register-form .form-check-input:checked {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
+    background-color: #d4af37;
+    border-color: #d4af37;
 }
 
 .register-form .btn-primary {
     padding: 12px 15px;
     font-weight: 500;
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
+    background-color: #d4af37;
+    border-color: #d4af37;
+    color: #121212;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .register-form .btn-primary:hover {
-    background-color: var(--primary-dark);
-    border-color: var(--primary-dark);
+    background-color: #e6c458;
+    border-color: #e6c458;
+}
+
+.register-form .btn-primary:focus {
+    box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25);
+    border-color: #e6c458;
 }
 
 /* Şifre Gücü Göstergesi */
@@ -128,12 +149,13 @@
     justify-content: space-between;
     margin-bottom: 5px;
     font-size: 14px;
-    color: var(--text-medium);
+    color: #b3b3b3;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .strength-meter {
     height: 5px;
-    background-color: #e9ecef;
+    background-color: #333;
     border-radius: 3px;
     overflow: hidden;
 }
@@ -143,6 +165,18 @@
     width: 0;
     border-radius: 3px;
     transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.strength-weak {
+    background-color: #F44336;
+}
+
+.strength-medium {
+    background-color: #FFC107;
+}
+
+.strength-strong {
+    background-color: #4CAF50;
 }
 
 /* Sosyal Medya Kayıt */
@@ -159,7 +193,7 @@
     top: 50%;
     width: calc(50% - 30px);
     height: 1px;
-    background-color: var(--border-color);
+    background-color: #333333;
 }
 
 .social-login-separator:before {
@@ -173,10 +207,11 @@
 .social-login-separator span {
     display: inline-block;
     padding: 0 15px;
-    background-color: var(--bg-white);
+    background-color: #252525;
     position: relative;
-    color: var(--text-medium);
+    color: #b3b3b3;
     font-size: 14px;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .social-login-buttons {
@@ -192,27 +227,30 @@
     text-align: center;
     border-radius: 5px;
     transition: all 0.3s ease;
+    background-color: #252525;
+    border: 1px solid;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .facebook-btn {
-    color: #3b5998;
-    border-color: #3b5998;
+    color: #4267B2;
+    border-color: #4267B2;
 }
 
 .facebook-btn:hover {
-    background-color: #3b5998;
-    border-color: #3b5998;
+    background-color: #4267B2;
+    border-color: #4267B2;
     color: white;
 }
 
 .google-btn {
-    color: #db4437;
-    border-color: #db4437;
+    color: #DB4437;
+    border-color: #DB4437;
 }
 
 .google-btn:hover {
-    background-color: #db4437;
-    border-color: #db4437;
+    background-color: #DB4437;
+    border-color: #DB4437;
     color: white;
 }
 
@@ -221,20 +259,21 @@
     text-align: center;
     margin-top: 20px;
     padding-top: 20px;
-    border-top: 1px solid var(--border-color);
-    color: var(--text-medium);
+    border-top: 1px solid #333333;
+    color: #b3b3b3;
     font-size: 14px;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .login-link {
-    color: var(--primary-color);
+    color: #d4af37;
     font-weight: 500;
     text-decoration: none;
     transition: all 0.3s ease;
 }
 
 .login-link:hover {
-    color: var(--primary-dark);
+    color: #e6c458;
     text-decoration: underline;
 }
 
@@ -289,61 +328,67 @@
     }
 }
 
-/* IE11 uyumluluğu için düzeltmeler */
-@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-    .register-form-container:before {
-        top: -5px;
-    }
-    
-    .social-login-separator span {
-        margin-top: -10px;
-    }
-}
-
 /* Hata ve Başarı Mesajları */
 .alert {
     border-radius: 8px;
     padding: 15px;
     margin-bottom: 20px;
     font-size: 14px;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .alert-danger {
-    background-color: #fff5f5;
-    border-color: #ffe0e0;
+    background-color: rgba(229, 62, 62, 0.1);
+    border-color: rgba(229, 62, 62, 0.3);
     color: #e53e3e;
 }
 
 .alert-success {
-    background-color: #f0fff4;
-    border-color: #c6f6d5;
+    background-color: rgba(56, 161, 105, 0.1);
+    border-color: rgba(56, 161, 105, 0.3);
     color: #38a169;
 }
 
 .alert .btn-close {
     font-size: 12px;
+    color: #b3b3b3;
 }
 
 /* Tarih seçici ve select stillemesi */
 input[type="date"] {
     min-height: 44px;
+    background-color: #333;
+    color: #ffffff;
 }
 
 /* KVKK Onay */
 .form-check-input.is-invalid ~ .form-check-label {
-    color: var(--danger);
+    color: #F44336;
 }
 
-/* Ek Özelleştirmeler */
-.register-form .input-group-text,
-.register-form .form-control,
-.register-form .form-select,
-.register-form .toggle-password,
-.register-form .toggle-password-confirm {
-    background-color: #f8f9fa; /* Bootstrap bg-light rengi */
+/* Özel select stillemesi */
+.form-select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23d4af37' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
-.register-form .form-control:focus,
-.register-form .form-select:focus {
-    background-color: #fff;
+/* Placeholder renkleri */
+::placeholder {
+    color: #999999 !important;
+    opacity: 1;
+}
+
+/* Odaklanma outline stillemesi */
+.form-control:focus, 
+.form-select:focus, 
+.btn:focus, 
+.form-check-input:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25) !important;
+    border-color: #e6c458 !important;
 }

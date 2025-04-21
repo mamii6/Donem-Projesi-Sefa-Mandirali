@@ -1,25 +1,26 @@
-/* Mesajlar Sayfası CSS */
+/* Mesajlar Sayfası CSS - Dark Mode */
 .chat-container {
     display: flex;
     height: 600px;
-    border: 1px solid #ddd;
+    border: 1px solid #333333;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
     margin-bottom: 20px;
+    background-color: #1e1e1e;
 }
 
 /* Konuşma Listesi */
 .conversation-list {
     width: 300px;
-    border-right: 1px solid #ddd;
+    border-right: 1px solid #333333;
     overflow-y: auto;
-    background: #f8f9fa;
+    background: #1e1e1e;
 }
 
 .conversation-item {
     padding: 15px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #333333;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -27,12 +28,12 @@
 }
 
 .conversation-item:hover {
-    background-color: #eaeaea;
+    background-color: #2a2a2a;
 }
 
 .conversation-item.active {
-    background-color: #e3f2fd;
-    border-left: 3px solid #0d6efd;
+    background-color: rgba(212, 175, 55, 0.1);
+    border-left: 3px solid #d4af37;
 }
 
 .conversation-avatar {
@@ -41,7 +42,7 @@
     border-radius: 50%;
     margin-right: 15px;
     object-fit: cover;
-    border: 1px solid #ddd;
+    border: 1px solid #333333;
 }
 
 .conversation-info {
@@ -55,25 +56,28 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    color: #ffffff;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .conversation-last-message {
-    color: #777;
+    color: #b3b3b3;
     font-size: 14px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .conversation-time {
     font-size: 12px;
-    color: #999;
+    color: #999999;
     margin-top: 5px;
 }
 
 .unread-badge {
-    background-color: #dc3545;
-    color: white;
+    background-color: #d4af37;
+    color: #121212;
     border-radius: 50%;
     padding: 2px 8px;
     font-size: 11px;
@@ -85,13 +89,13 @@
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    background-color: #f5f5f5;
+    background-color: #252525;
 }
 
 .chat-header {
     padding: 15px;
-    border-bottom: 1px solid #ddd;
-    background: #f8f9fa;
+    border-bottom: 1px solid #333333;
+    background: #1e1e1e;
     display: flex;
     align-items: center;
 }
@@ -102,7 +106,20 @@
     border-radius: 50%;
     margin-right: 15px;
     object-fit: cover;
-    border: 1px solid #ddd;
+    border: 1px solid #333333;
+}
+
+.chat-header h4 {
+    color: #ffffff;
+    margin-bottom: 0;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 600;
+}
+
+.chat-header p {
+    color: #b3b3b3;
+    margin-bottom: 0;
+    font-size: 13px;
 }
 
 /* Mesajlar */
@@ -112,6 +129,7 @@
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+    background: linear-gradient(rgba(18, 18, 18, 0.6), rgba(30, 30, 30, 0.4));
 }
 
 .message {
@@ -120,7 +138,8 @@
     margin-bottom: 10px;
     max-width: 70%;
     position: relative;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    font-family: 'Quicksand', sans-serif;
 }
 
 .message-content {
@@ -130,21 +149,23 @@
 
 .sent {
     align-self: flex-end;
-    background: #dcf8c6;
+    background: #3a3a3a;
+    color: #ffffff;
     border-bottom-right-radius: 5px;
     margin-left: auto;
 }
 
 .received {
     align-self: flex-start;
-    background: #fff;
+    background: #252525;
+    color: #ffffff;
     border-bottom-left-radius: 5px;
     margin-right: auto;
 }
 
 .message-time {
     font-size: 11px;
-    color: #999;
+    color: #999999;
     margin-top: 5px;
     text-align: right;
     display: flex;
@@ -154,18 +175,18 @@
 
 .read-status {
     margin-left: 5px;
-    color: #aaa;
+    color: #999999;
 }
 
 .read-status.read {
-    color: #34b7f1;
+    color: #d4af37;
 }
 
 /* Mesaj Giriş Alanı */
 .chat-input {
     padding: 15px;
-    background: #f8f9fa;
-    border-top: 1px solid #ddd;
+    background: #1e1e1e;
+    border-top: 1px solid #333333;
 }
 
 .chat-input form {
@@ -181,6 +202,15 @@
     min-height: 44px;
     max-height: 150px;
     overflow-y: auto;
+    background-color: #333;
+    border: 1px solid #333333;
+    color: #ffffff;
+}
+
+.chat-input textarea:focus {
+    outline: none;
+    border-color: #d4af37;
+    box-shadow: 0 0 0 0.2rem rgba(212, 175, 55, 0.25);
 }
 
 .chat-input .send-btn {
@@ -192,6 +222,14 @@
     align-items: center;
     justify-content: center;
     padding: 0;
+    background-color: #d4af37;
+    border-color: #d4af37;
+    color: #121212;
+}
+
+.chat-input .send-btn:hover {
+    background-color: #e6c458;
+    border-color: #e6c458;
 }
 
 /* Boş Durum */
@@ -201,8 +239,8 @@
     justify-content: center;
     align-items: center;
     height: 100%;
-    background: #f8f9fa;
-    color: #777;
+    background: #252525;
+    color: #b3b3b3;
     text-align: center;
     padding: 20px;
 }
@@ -210,7 +248,7 @@
 .empty-icon {
     font-size: 50px;
     margin-bottom: 20px;
-    color: #ddd;
+    color: #d4af37;
 }
 
 .no-conversation {
@@ -218,13 +256,23 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #777;
+    color: #b3b3b3;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .no-messages {
     margin: auto;
     padding: 20px;
-    color: #777;
+    color: #b3b3b3;
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.no-messages i {
+    font-size: 40px;
+    color: #d4af37;
+    margin-bottom: 15px;
+    opacity: 0.7;
 }
 
 /* Responsive Düzenlemeler */
@@ -238,7 +286,7 @@
         width: 100%;
         height: 300px;
         border-right: none;
-        border-bottom: 1px solid #ddd;
+        border-bottom: 1px solid #333333;
     }
     
     .chat-area {
@@ -258,16 +306,32 @@
 
 .chat-messages::-webkit-scrollbar-track,
 .conversation-list::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: #1e1e1e;
 }
 
 .chat-messages::-webkit-scrollbar-thumb,
 .conversation-list::-webkit-scrollbar-thumb {
-    background: #ddd;
+    background: #3a3a3a;
     border-radius: 10px;
 }
 
 .chat-messages::-webkit-scrollbar-thumb:hover,
 .conversation-list::-webkit-scrollbar-thumb:hover {
-    background: #ccc;
+    background: #4a4a4a;
+}
+
+/* Mesaj Animasyonları */
+@keyframes messageIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.message {
+    animation: messageIn 0.3s ease-out forwards;
 }

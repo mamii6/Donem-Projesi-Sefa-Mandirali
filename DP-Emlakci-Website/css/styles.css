@@ -1,3 +1,8 @@
+input::placeholder {
+    font-weight: bold;
+    opacity: 0.5;
+    color: white!important;
+  }
 /* İyileştirilmiş Arama Formu Stilleri */
 .search-form-floating {
     position: absolute;
@@ -8,20 +13,20 @@
 }
 
 .search-form-tabs {
-    background: var(--bg-white);
+    background: #252525;
     border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     overflow: hidden;
 }
 
 .search-form-tabs .nav-tabs {
     border-bottom: none;
     padding: 0 15px;
-    background-color: var(--bg-light);
+    background-color: #1e1e1e;
 }
 
 .search-form-tabs .nav-link {
-    color: var(--text-dark);
+    color: #ffffff;
     font-weight: 500;
     padding: 15px 25px;
     border: none;
@@ -31,13 +36,13 @@
 }
 
 .search-form-tabs .nav-link.active {
-    color: var(--primary-color);
+    color: #d4af37;
     background-color: transparent;
-    border-bottom: 3px solid var(--primary-color);
+    border-bottom: 3px solid #d4af37;
 }
 
 .search-form-tabs .nav-link:hover {
-    color: var(--primary-color);
+    color: #e6c458;
 }
 
 .search-form-tabs .tab-content {
@@ -50,32 +55,46 @@
 
 .search-form .form-label {
     font-weight: 500;
-    color: var(--text-dark);
+    color: #ffffff;
     margin-bottom: 8px;
 }
-
+.focused, .blur>input{
+    color:white;
+}
 .search-form .form-control,
-.search-form .form-select {
-    border: 1px solid var(--border-color);
+.search-form .form-select{
+    border: 1px solid #333333;
     border-radius: 5px;
     padding: 10px 15px;
     font-size: 14px;
+    background-color: #333;
+    color: #ffffff!important;
 }
 
 .search-form .form-control:focus,
 .search-form .form-select:focus {
-    box-shadow: 0 0 0 0.25rem rgba(139, 90, 43, 0.15);
-    border-color: var(--primary-light);
+    box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25);
+    border-color: #e6c458;
+    background-color: #3a3a3a;
 }
 
 .search-form .input-group-text {
-    background-color: var(--bg-light);
-    border-color: var(--border-color);
+    background-color: #333;
+    border-color: #333333;
+    color: #b3b3b3;
 }
 
 .search-form .btn-primary {
     padding: 12px 15px;
     font-weight: 500;
+    background-color: #d4af37;
+    border-color: #d4af37;
+    color: #121212;
+}
+
+.search-form .btn-primary:hover {
+    background-color: #e6c458;
+    border-color: #e6c458;
 }
 
 .advanced-search-toggle {
@@ -83,14 +102,14 @@
 }
 
 .advanced-search-toggle a {
-    color: var(--primary-color);
+    color: #d4af37;
     font-size: 14px;
     font-weight: 500;
     text-decoration: none;
 }
 
 .advanced-search-toggle a:hover {
-    color: var(--primary-dark);
+    color: #e6c458;
     text-decoration: underline;
 }
 
@@ -102,9 +121,9 @@
 .property-card {
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     margin-bottom: 30px;
-    background-color: var(--bg-white);
+    background-color: #252525;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     height: 100%;
     display: flex;
@@ -113,7 +132,7 @@
 
 .property-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
 }
 
 .property-img {
@@ -137,8 +156,8 @@
     position: absolute;
     top: 15px;
     left: 15px;
-    background-color: var(--primary-color);
-    color: white;
+    background-color: #d4af37;
+    color: #121212;
     padding: 5px 12px;
     border-radius: 20px;
     font-size: 12px;
@@ -150,7 +169,192 @@
     position: absolute;
     bottom: 15px;
     right: 15px;
-    background-color: var(--primary-dark);
+    background-color: #b3941e;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    z-index: 1;
+}
+
+.property-favorite {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 1;
+}
+
+.property-favorite-form {
+    margin: 0;
+    padding: 0;
+}
+
+/* İyileştirilmiş Arama Formu Stilleri */
+.search-form-floating {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -70px;
+    z-index: 99;
+}
+
+.search-form-tabs {
+    background: #252525;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+
+.search-form-tabs .nav-tabs {
+    border-bottom: none;
+    padding: 0 15px;
+    background-color: #1e1e1e;
+}
+
+.search-form-tabs .nav-link {
+    color: #ffffff;
+    font-weight: 500;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 0;
+    margin-right: 10px;
+    position: relative;
+}
+
+.search-form-tabs .nav-link.active {
+    color: #d4af37;
+    background-color: transparent;
+    border-bottom: 3px solid #d4af37;
+}
+
+.search-form-tabs .nav-link:hover {
+    color: #e6c458;
+}
+
+.search-form-tabs .tab-content {
+    padding: 0;
+}
+
+.search-form {
+    padding: 20px;
+}
+
+.search-form .form-label {
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.search-form .form-control,
+.search-form .form-select {
+    border: 1px solid #333333;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 14px;
+    background-color: #333;
+    color: #ffffff;
+}
+
+.search-form .form-control:focus,
+.search-form .form-select:focus {
+    box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25);
+    border-color: #e6c458;
+    background-color: #3a3a3a;
+}
+
+.search-form .input-group-text {
+    background-color: #333;
+    border-color: #333333;
+    color: #b3b3b3;
+}
+
+.search-form .btn-primary {
+    padding: 12px 15px;
+    font-weight: 500;
+    background-color: #d4af37;
+    border-color: #d4af37;
+    color: #121212;
+}
+
+.search-form .btn-primary:hover {
+    background-color: #e6c458;
+    border-color: #e6c458;
+}
+
+.advanced-search-toggle {
+    text-align: center;
+}
+
+.advanced-search-toggle a {
+    color: #d4af37;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.advanced-search-toggle a:hover {
+    color: #e6c458;
+    text-decoration: underline;
+}
+
+/* Property Card İyileştirmeleri */
+.properties-grid {
+    margin-top: 30px;
+}
+
+.property-card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    margin-bottom: 30px;
+    background-color: #252525;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.property-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+.property-img {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.property-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.property-card:hover .property-img img {
+    transform: scale(1.05);
+}
+
+.property-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: #d4af37;
+    color: #121212;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    z-index: 1;
+}
+
+.property-price {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background-color: #b3941e;
     color: white;
     padding: 5px 15px;
     border-radius: 20px;
@@ -175,9 +379,9 @@
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(30, 30, 30, 0.8);
     border: none;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     color: #ccc;
     font-size: 16px;
     display: flex;
@@ -188,7 +392,7 @@
 }
 
 .btn-favorite:hover {
-    background-color: white;
+    background-color: #1e1e1e;
     transform: scale(1.1);
 }
 
@@ -224,15 +428,16 @@
 .property-title {
     font-size: 18px;
     margin-bottom: 5px;
-    color: var(--primary-dark);
+    color: #ffffff;
     font-weight: 600;
+    font-family: 'Ubuntu', sans-serif;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
 .property-location {
-    color: var(--text-medium);
+    color: #b3b3b3;
     margin-bottom: 10px;
     font-size: 14px;
     white-space: nowrap;
@@ -241,7 +446,7 @@
 }
 
 .property-location i {
-    color: var(--primary-light);
+    color: #e6c458;
     margin-right: 5px;
 }
 
@@ -252,20 +457,28 @@
 }
 
 .property-feature {
-    color: var(--text-medium);
+    color: #b3b3b3;
     font-size: 14px;
     display: flex;
     align-items: center;
 }
 
 .property-feature i {
-    color: var(--primary-light);
+    color: #e6c458;
     margin-right: 5px;
     font-size: 16px;
 }
 
 .property-card .btn-primary {
     margin-top: auto;
+    background-color: #d4af37;
+    border-color: #d4af37;
+    color: #121212;
+}
+
+.property-card .btn-primary:hover {
+    background-color: #e6c458;
+    border-color: #e6c458;
 }
 
 /* Responsive düzenlemeler */

@@ -261,7 +261,7 @@ include 'includes/header.php';
                         </div>
                     <?php elseif (!isset($_SESSION['kullanici_id'])): ?>
                         <div class="mt-4 alert alert-info">
-                            <p>İlan sahibine mesaj göndermek için <a href="giris.php" class="alert-link">giriş yapın</a> veya <a href="kayit.php" class="alert-link">üye olun</a>.</p>
+                            <p>İlan sahibine mesaj göndermek için <a href="login.php" class="alert-link">giriş yapın</a> veya <a href="register.php" class="alert-link">üye olun</a>.</p>
                         </div>
                     <?php endif; ?>
                 </div>

@@ -1,4 +1,170 @@
 /* Timeline Stili */
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.content-title {
+    color: #ffffff;
+}
+
+.lead {
+    color: #ffffff !important;
+}
+
+.content-text {
+    color: #b3b3b3;
+}
+
+.card, .feature-box, .team-box, .testimonial-box {
+    background-color: #252525 !important;
+    color: #ffffff;
+}
+
+.card-title, .h5, .timeline-title {
+    color: #ffffff;
+}
+
+.card-text, .feature-box p, .timeline-content p {
+    color: #b3b3b3;
+}
+
+.bg-light, .section-padding.bg-light {
+    background-color: #1e1e1e !important;
+}
+
+.bg-white {
+    background-color: #252525 !important;
+}
+
+.shadow-sm, .shadow-lg {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3) !important;
+}
+
+.feature-icon {
+    background-color: #d4af37 !important;
+}
+
+.feature-icon i {
+    color: #121212 !important;
+}
+
+.stats-section {
+    background-color: #1e1e1e !important;
+}
+
+.stats-icon {
+    background-color: #d4af37 !important;
+}
+
+.stats-icon i {
+    color: #121212 !important;
+}
+
+.counter {
+    color: #d4af37 !important;
+}
+
+.stats-box p {
+    color: #b3b3b3 !important;
+}
+
+.team-img {
+    border: 5px solid #d4af37;
+}
+
+.team-social {
+    background-color: rgba(212, 175, 55, 0.8);
+}
+
+.team-social a {
+    background-color: #121212;
+    color: #d4af37;
+}
+
+.team-social a:hover {
+    background-color: #1e1e1e;
+    color: #e6c458;
+}
+
+.testimonial-box {
+    background-color: #252525;
+}
+
+.testimonial-text {
+    color: #b3b3b3;
+}
+
+.testimonial-img {
+    border: 5px solid #d4af37;
+}
+
+.testimonial-name {
+    color: #ffffff;
+}
+
+.testimonial-position {
+    color: #b3b3b3;
+}
+
+.list-group-item {
+    background-color: #252525;
+    color: #ffffff;
+    border-color: #333333;
+}
+
+.text-muted {
+    color: #b3b3b3 !important;
+}
+
+.modal-content {
+    background-color: #252525;
+    color: #ffffff;
+}
+
+.modal-header {
+    border-bottom-color: #333333;
+}
+
+.btn-primary {
+    background-color: #d4af37;
+    border-color: #d4af37;
+    color: #121212;
+}
+
+.btn-primary:hover {
+    background-color: #e6c458;
+    border-color: #e6c458;
+}
+
+.btn-outline-light:hover {
+    color: #121212;
+}
+
+/* Timeline renk düzeltmeleri */
+.timeline:before {
+    background-color: #d4af37;
+}
+
+.timeline-content {
+    background-color: #252525;
+}
+
+.timeline-content:before {
+    background-color: #d4af37;
+}
+
+.timeline-date {
+    background-color: #d4af37;
+    color: #121212;
+}
 .timeline {
     position: relative;
     padding: 20px 0;
@@ -21,8 +187,8 @@
 }
 
 .timeline-content {
-    background-color: white;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    background-color: #252525;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     padding: 20px;
     border-radius: 10px;
     position: relative;
@@ -50,7 +216,7 @@
     display: inline-block;
     padding: 5px 15px;
     background-color: var(--primary-color);
-    color: white;
+    color: #121212;
     border-radius: 20px;
     font-weight: bold;
     margin-bottom: 10px;
@@ -58,21 +224,22 @@
 
 .timeline-title {
     margin-bottom: 10px;
-    color: var(--primary-dark);
+    color: var(--text-dark);
+    font-family: 'Ubuntu', sans-serif;
 }
 
 /* Ekip Üyeleri Stili */
 .team-box {
-    background-color: white;
+    background-color: #252525;
     border-radius: 10px;
     padding: 30px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     transition: all 0.3s ease;
 }
 
 .team-box:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
 }
 
 .team-img {
@@ -81,7 +248,7 @@
     height: 150px;
     margin: 0 auto 20px;
     overflow: hidden;
-    border: 5px solid var(--accent-color);
+    border: 5px solid var(--primary-color);
 }
 
 .team-img img {
@@ -104,7 +271,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(139, 90, 43, 0.8);
+    background-color: rgba(212, 175, 55, 0.8);
     opacity: 0;
     transition: all 0.3s ease;
 }
@@ -116,7 +283,7 @@
 .team-social a {
     width: 36px;
     height: 36px;
-    background-color: white;
+    background-color: #121212;
     color: var(--primary-color);
     border-radius: 50%;
     display: flex;
@@ -127,27 +294,32 @@
 }
 
 .team-social a:hover {
-    background-color: var(--primary-dark);
-    color: white;
+    background-color: #1e1e1e;
+    color: var(--primary-light);
     transform: translateY(-3px);
 }
 
 .team-box h4 {
     font-size: 18px;
     margin-bottom: 5px;
-    color: var(--primary-dark);
+    color: var(--text-dark);
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .team-box p {
     color: var(--text-medium);
     font-size: 14px;
     margin-bottom: 0;
+    font-family: 'Quicksand', sans-serif;
 }
 
 /* İstatistik Kutular Stili */
 .stats-box {
     padding: 30px 20px;
     text-align: center;
+    background-color: #252525;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 .stats-icon {
@@ -158,18 +330,27 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: rgba(212, 175, 55, 0.2);
+}
+
+.stats-icon i {
+    color: var(--primary-color);
+    font-size: 30px;
 }
 
 .stats-box h3 {
     font-size: 36px;
     margin-bottom: 10px;
     font-weight: 700;
+    color: var(--primary-color);
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .stats-box p {
     margin-bottom: 0;
     font-size: 16px;
-    opacity: 0.9;
+    color: var(--text-medium);
+    font-family: 'Quicksand', sans-serif;
 }
 
 .counter {

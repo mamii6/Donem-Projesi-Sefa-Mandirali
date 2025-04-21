@@ -16,11 +16,18 @@ if (isset($_SESSION["kullanici_id"])) {
 // Header'ı dahil et
 include 'includes/header.php';
 ?>
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet" href="css/hakkimizda.css">
 
+
+
 <!-- Hero Section -->
-<section class="page-header" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../img/page-header-bg.jpg');">
+<section class="page-header" style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../img/page-header-bg.jpg');">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -46,7 +53,7 @@ include 'includes/header.php';
             <div class="col-lg-6">
                 <div class="content-section">
                     <h2 class="content-title">Emlak Sektöründe Güvenilir Adresiniz</h2>
-                    <p class="lead text-dark mb-4">2010 yılında kurulan şirketimiz, emlak sektöründe müşteri memnuniyetini ön planda tutarak hizmet vermektedir.</p>
+                    <p class="lead mb-4">2010 yılında kurulan şirketimiz, emlak sektöründe müşteri memnuniyetini ön planda tutarak hizmet vermektedir.</p>
                     <p class="content-text">Profesyonel Emlak olarak 15 yıllık deneyimimizle, siz değerli müşterilerimize en kaliteli hizmeti sunmak için çalışıyoruz. Gayrimenkul alım, satım ve kiralama süreçlerini en şeffaf ve güvenilir şekilde yöneterek hayalinizdeki eve kavuşmanızı sağlıyoruz.</p>
                     <p class="content-text">Uzman kadromuz, geniş portföyümüz ve müşteri odaklı hizmet anlayışımızla, emlak sektöründe fark yaratmaya devam ediyoruz.</p>
                 </div>
@@ -62,8 +69,8 @@ include 'includes/header.php';
             <div class="col-lg-6 mb-4">
                 <div class="card h-100 border-0 shadow-sm">
                     <div class="card-body p-4">
-                        <div class="feature-icon mb-4" style="background-color: var(--accent-color);">
-                            <i class="fas fa-eye fa-2x" style="color: var(--primary-dark);"></i>
+                        <div class="feature-icon mb-4">
+                            <i class="fas fa-eye fa-2x"></i>
                         </div>
                         <h3 class="card-title h4 mb-3">Vizyonumuz</h3>
                         <p class="card-text">Türkiye genelinde güvenilir, şeffaf ve müşteri odaklı yaklaşımıyla tanınan öncü bir emlak şirketi olmak. Teknolojinin tüm imkanlarını kullanarak, emlak sektöründe yenilikçi çözümler sunmak ve müşterilerimizin beklentilerinin ötesinde bir deneyim yaşatmak için sürekli kendimizi geliştiriyoruz.</p>
@@ -73,8 +80,8 @@ include 'includes/header.php';
             <div class="col-lg-6 mb-4">
                 <div class="card h-100 border-0 shadow-sm">
                     <div class="card-body p-4">
-                        <div class="feature-icon mb-4" style="background-color: var(--accent-color);">
-                            <i class="fas fa-bullseye fa-2x" style="color: var(--primary-dark);"></i>
+                        <div class="feature-icon mb-4">
+                            <i class="fas fa-bullseye fa-2x"></i>
                         </div>
                         <h3 class="card-title h4 mb-3">Misyonumuz</h3>
                         <p class="card-text">Müşterilerimizin ihtiyaçlarını en iyi şekilde anlayarak, doğru gayrimenkul çözümleri sunmak. Dürüstlük, güven ve profesyonellik ilkelerimizden ödün vermeden, müşterilerimize en değerli varlıkları olan gayrimenkulleri için en doğru kararları almalarında yardımcı olmak ve sektörde kalite standartlarını yükseltmek.</p>
@@ -99,9 +106,9 @@ include 'includes/header.php';
         
         <div class="row">
             <div class="col-lg-4 col-md-6 mb-4">
-                <div class="feature-box p-4 h-100 bg-white rounded shadow-sm">
-                    <div class="feature-icon mb-3" style="background-color: var(--accent-color);">
-                        <i class="fas fa-handshake fa-2x" style="color: var(--primary-dark);"></i>
+                <div class="feature-box p-4 h-100 rounded shadow-sm">
+                    <div class="feature-icon mb-3">
+                        <i class="fas fa-handshake fa-2x"></i>
                     </div>
                     <h3 class="h5">Dürüstlük ve Şeffaflık</h3>
                     <p>Tüm işlemlerimizde açık ve şeffaf olmayı, müşterilerimize karşı her zaman dürüst davranmayı ilke ediniyoruz.</p>
@@ -109,9 +116,9 @@ include 'includes/header.php';
             </div>
             
             <div class="col-lg-4 col-md-6 mb-4">
-                <div class="feature-box p-4 h-100 bg-white rounded shadow-sm">
-                    <div class="feature-icon mb-3" style="background-color: var(--accent-color);">
-                        <i class="fas fa-award fa-2x" style="color: var(--primary-dark);"></i>
+                <div class="feature-box p-4 h-100 rounded shadow-sm">
+                    <div class="feature-icon mb-3">
+                        <i class="fas fa-award fa-2x"></i>
                     </div>
                     <h3 class="h5">Kalite ve Güvenilirlik</h3>
                     <p>Her hizmetimizde en yüksek kaliteyi sunmayı ve müşterilerimizin güvenini kazanmayı hedefliyoruz.</p>
@@ -119,9 +126,9 @@ include 'includes/header.php';
             </div>
             
             <div class="col-lg-4 col-md-6 mb-4">
-                <div class="feature-box p-4 h-100 bg-white rounded shadow-sm">
-                    <div class="feature-icon mb-3" style="background-color: var(--accent-color);">
-                        <i class="fas fa-users fa-2x" style="color: var(--primary-dark);"></i>
+                <div class="feature-box p-4 h-100 rounded shadow-sm">
+                    <div class="feature-icon mb-3">
+                        <i class="fas fa-users fa-2x"></i>
                     </div>
                     <h3 class="h5">Müşteri Odaklılık</h3>
                     <p>Müşterilerimizin ihtiyaç ve beklentilerini her zaman ön planda tutuyor, onlara özel çözümler sunuyoruz.</p>
@@ -129,9 +136,9 @@ include 'includes/header.php';
             </div>
             
             <div class="col-lg-4 col-md-6 mb-4">
-                <div class="feature-box p-4 h-100 bg-white rounded shadow-sm">
-                    <div class="feature-icon mb-3" style="background-color: var(--accent-color);">
-                        <i class="fas fa-lightbulb fa-2x" style="color: var(--primary-dark);"></i>
+                <div class="feature-box p-4 h-100 rounded shadow-sm">
+                    <div class="feature-icon mb-3">
+                        <i class="fas fa-lightbulb fa-2x"></i>
                     </div>
                     <h3 class="h5">Yenilikçilik</h3>
                     <p>Sektördeki yenilikleri takip ediyor, teknolojik gelişmeleri hizmetlerimize entegre ediyoruz.</p>
@@ -139,9 +146,9 @@ include 'includes/header.php';
             </div>
             
             <div class="col-lg-4 col-md-6 mb-4">
-                <div class="feature-box p-4 h-100 bg-white rounded shadow-sm">
-                    <div class="feature-icon mb-3" style="background-color: var(--accent-color);">
-                        <i class="fas fa-certificate fa-2x" style="color: var(--primary-dark);"></i>
+                <div class="feature-box p-4 h-100 rounded shadow-sm">
+                    <div class="feature-icon mb-3">
+                        <i class="fas fa-certificate fa-2x"></i>
                     </div>
                     <h3 class="h5">Uzmanlık</h3>
                     <p>Alanında uzman kadromuzla, emlak sektöründeki bilgi ve deneyimimizi müşterilerimizin hizmetine sunuyoruz.</p>
@@ -149,9 +156,9 @@ include 'includes/header.php';
             </div>
             
             <div class="col-lg-4 col-md-6 mb-4">
-                <div class="feature-box p-4 h-100 bg-white rounded shadow-sm">
-                    <div class="feature-icon mb-3" style="background-color: var(--accent-color);">
-                        <i class="fas fa-hands-helping fa-2x" style="color: var(--primary-dark);"></i>
+                <div class="feature-box p-4 h-100 rounded shadow-sm">
+                    <div class="feature-icon mb-3">
+                        <i class="fas fa-hands-helping fa-2x"></i>
                     </div>
                     <h3 class="h5">Toplumsal Sorumluluk</h3>
                     <p>Çevreye ve topluma karşı sorumluluklarımızın farkındayız, sürdürülebilir çözümler üretiyoruz.</p>
@@ -240,7 +247,7 @@ include 'includes/header.php';
                         <div class="row">
                             <div class="col-lg-6 offset-lg-6">
                                 <div class="timeline-content left">
-                                    <div class="timeline-date">2023</div>
+                                    <div class="timeline-date">2025</div>
                                     <h4 class="timeline-title">Bugün</h4>
                                     <p>Yenilikçi yaklaşımımız ve müşteri odaklı hizmet anlayışımızla sektörde öncü konumumuzu sürdürüyor, binlerce müşterimize hayallerindeki eve kavuşma yolunda rehberlik ediyoruz.</p>
                                 </div>
@@ -330,45 +337,45 @@ include 'includes/header.php';
 </section>
 
 <!-- Stats Section -->
-<section class="stats-section section-padding" style="background-color: var(--primary-dark); color: white;">
+<section class="stats-section section-padding">
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
                 <div class="stats-box text-center">
-                    <div class="stats-icon" style="background-color: var(--accent-color);">
-                        <i class="fas fa-home fa-2x" style="color: var(--primary-dark);"></i>
+                    <div class="stats-icon">
+                        <i class="fas fa-home fa-2x"></i>
                     </div>
-                    <h3 class="counter text-white">5000</h3>
+                    <h3 class="counter">5000</h3>
                     <p>Satılan Emlak</p>
                 </div>
             </div>
             
             <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
                 <div class="stats-box text-center">
-                    <div class="stats-icon" style="background-color: var(--accent-color);">
-                        <i class="fas fa-users fa-2x" style="color: var(--primary-dark);"></i>
+                    <div class="stats-icon">
+                        <i class="fas fa-users fa-2x"></i>
                     </div>
-                    <h3 class="counter text-white">7500</h3>
+                    <h3 class="counter">7500</h3>
                     <p>Mutlu Müşteri</p>
                 </div>
             </div>
             
             <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
                 <div class="stats-box text-center">
-                    <div class="stats-icon" style="background-color: var(--accent-color);">
-                        <i class="fas fa-map-marker-alt fa-2x" style="color: var(--primary-dark);"></i>
+                    <div class="stats-icon">
+                        <i class="fas fa-map-marker-alt fa-2x"></i>
                     </div>
-                    <h3 class="counter text-white">5</h3>
+                    <h3 class="counter">5</h3>
                     <p>Şube Sayısı</p>
                 </div>
             </div>
             
             <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
                 <div class="stats-box text-center">
-                    <div class="stats-icon" style="background-color: var(--accent-color);">
-                        <i class="fas fa-award fa-2x" style="color: var(--primary-dark);"></i>
+                    <div class="stats-icon">
+                        <i class="fas fa-award fa-2x"></i>
                     </div>
-                    <h3 class="counter text-white">15</h3>
+                    <h3 class="counter">15</h3>
                     <p>Yıllık Deneyim</p>
                 </div>
             </div>

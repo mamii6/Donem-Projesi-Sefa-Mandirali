@@ -3,7 +3,7 @@ session_start();
 require_once "db.php";
 
 if (!isset($_SESSION["kullanici_id"])) {
-    header("Location: giris.php");
+    header("Location: login.php");
     exit;
 }
 

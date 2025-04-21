@@ -152,7 +152,207 @@ function buildPaginationUrl($page) {
 // Header'ı dahil et
 include 'includes/header.php';
 ?>
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="css/styles.css">
+
+<!-- Ek Stil Tanımlamaları -->
+<style>
+    body {
+        font-family: 'Quicksand', sans-serif;
+        background-color: #121212;
+        color: #ffffff;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: 700;
+        color: #ffffff;
+    }
+    
+    .card {
+        background-color: #252525;
+        border-color: #333333;
+    }
+    
+    .card-header {
+        background-color: #1e1e1e;
+        border-bottom: 1px solid #333333;
+    }
+    
+    .form-control, .form-select {
+        background-color: #333;
+        border-color: #333333;
+        color: #ffffff;
+    }
+    
+    .form-control::placeholder, .form-select::placeholder {
+        color: #999999;
+    }
+    
+    .form-control:focus, .form-select:focus {
+        background-color: #3a3a3a;
+        border-color: #d4af37;
+        color: #ffffff;
+        box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25);
+    }
+    
+    .btn-primary {
+        background-color: #d4af37;
+        border-color: #d4af37;
+        color: #121212;
+    }
+    
+    .btn-primary:hover {
+        background-color: #e6c458;
+        border-color: #e6c458;
+    }
+    
+    .btn-outline-secondary {
+        color: #b3b3b3;
+        border-color: #b3b3b3;
+    }
+    
+    .btn-outline-secondary:hover {
+        background-color: #333;
+        color: #ffffff;
+        border-color: #b3b3b3;
+    }
+    
+    .text-muted {
+        color: #b3b3b3 !important;
+    }
+    
+    .list-group-item {
+        background-color: #252525;
+        border-color: #333333;
+        color: #ffffff;
+    }
+    
+    .badge.bg-primary {
+        background-color: #d4af37 !important;
+        color: #121212;
+    }
+    
+    .hero-small {
+        padding: 80px 0 50px;
+        background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../img/page-header-bg.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+    
+    .breadcrumb-item a {
+        color: #d4af37;
+    }
+    
+    .breadcrumb-item.active {
+        color: #ffffff;
+    }
+    
+    .property-card {
+        background-color: #252525;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        margin-bottom: 30px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .property-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    }
+    
+    .property-tag {
+        background-color: #d4af37;
+        color: #121212;
+    }
+    
+    .property-price {
+        background-color: #b3941e;
+        color: #ffffff;
+    }
+    
+    .property-title {
+        color: #ffffff;
+    }
+    
+    .property-location {
+        color: #b3b3b3;
+    }
+    
+    .property-feature {
+        color: #b3b3b3;
+    }
+    
+    .property-feature i {
+        color: #d4af37;
+    }
+    
+    .btn-favorite {
+        background-color: rgba(30, 30, 30, 0.8);
+        color: #ccc;
+    }
+    
+    .btn-favorite.active {
+        color: #ff5a5f;
+    }
+    
+    .alert-info {
+        background-color: rgba(33, 150, 243, 0.1);
+        border-color: rgba(33, 150, 243, 0.2);
+        color: #2196F3;
+    }
+    
+    .page-link {
+        background-color: #252525;
+        border-color: #333333;
+        color: #d4af37;
+    }
+    
+    .page-link:hover {
+        background-color: #333;
+        border-color: #333333;
+        color: #e6c458;
+    }
+    
+    .page-item.active .page-link {
+        background-color: #d4af37;
+        border-color: #d4af37;
+        color: #121212;
+    }
+    
+    .page-item.disabled .page-link {
+        background-color: #1e1e1e;
+        border-color: #333333;
+        color: #666666;
+    }
+    
+    .shadow-sm {
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.3) !important;
+    }
+    
+    /* Scrollbar düzenlemesi */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    ::-webkit-scrollbar-track {
+        background: #1e1e1e;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: #333;
+        border-radius: 4px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+        background: #444;
+    }
+</style>
 
 <!-- Hero Section -->
 <section class="hero-section hero-small">
@@ -179,7 +379,7 @@ include 'includes/header.php';
             <div class="col-lg-3 mb-4">
                 <!-- Arama kartı -->
                 <div class="card shadow-sm mb-4">
-                    <div class="card-header text-white">
+                    <div class="card-header">
                         <h5 class="mb-0">Arama</h5>
                     </div>
                     <div class="card-body">
@@ -197,7 +397,7 @@ include 'includes/header.php';
 
                 <!-- Filtre kartı -->
                 <div class="card shadow-sm">
-                    <div class="card-header  text-white">
+                    <div class="card-header">
                         <h5 class="mb-0">Filtreleme</h5>
                     </div>
                     <div class="card-body">
@@ -266,7 +466,7 @@ include 'includes/header.php';
 
                 <!-- İstatistikler -->
                 <div class="card mt-4 shadow-sm">
-                    <div class="card-header  text-white">
+                    <div class="card-header">
                         <h5 class="mb-0">İstatistikler</h5>
                     </div>
                     <div class="card-body">

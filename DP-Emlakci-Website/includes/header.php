@@ -9,13 +9,88 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="icon" href="uploads/sayfalogo.png" type="image/png">
 
     <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* Navbar yazıları için bold stil */
+        .menu-list li a {
+            font-weight: 700;
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        /* Modern giriş ikonları için stiller */
+        .auth-icons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .auth-icon {
+            position: relative;
+            font-size: 20px;
+            color: white;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(212, 175, 55, 0.2);
+        }
+        
+        .auth-icon:hover {
+            background-color: #d4af37;
+            color: #121212;
+            transform: translateY(-3px);
+        }
+        
+        .auth-icon .tooltip {
+            position: absolute;
+            bottom: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            z-index: 10;
+        }
+        
+        .auth-icon:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Logo stilini güncelleme */
+        .logo h1 {
+            font-family: 'Ubuntu', sans-serif;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: #d4af37;
+        }
+        
+        /* Mobil menü için */
+        .mobile-menu-list li a {
+            font-weight: 700;
+            font-family: 'Ubuntu', sans-serif;
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -80,9 +155,15 @@
                             </ul>
                         </div>
                     <?php else: ?>
-                        <div class="auth-buttons">
-                            <a class="btn btn-outline-light btn-sm me-2" href="login.php">Giriş Yap</a>
-                            <a class="btn btn-primary btn-sm" href="register.php">Üye Ol</a>
+                        <div class="auth-icons">
+                            <a href="login.php" class="auth-icon">
+                                <i class="fas fa-sign-in-alt"></i>
+                                <span class="tooltip">Giriş Yap</span>
+                            </a>
+                            <a href="register.php" class="auth-icon">
+                                <i class="fas fa-user-plus"></i>
+                                <span class="tooltip">Üye Ol</span>
+                            </a>
                         </div>
                     <?php endif; ?>
                 </div>

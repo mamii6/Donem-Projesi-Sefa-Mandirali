@@ -60,7 +60,188 @@ if (isset($_SESSION["kullanici_id"])) {
 include 'includes/header.php';
 
 ?>
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- CSS Stilleri -->
+<link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/styles.css">
+
+<!-- Ek Stil Tanımlamaları -->
+<style>
+    body {
+        font-family: 'Quicksand', sans-serif;
+        background-color: #121212;
+        color: #ffffff;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: 700;
+    }
+    
+    /* Navbar yazıları için bold stil */
+    .menu-list li a {
+        font-weight: 700;
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 14px;
+        transition: all 0.3s ease;
+    }
+    
+    /* Modern giriş ikonları için stiller */
+    .auth-icons {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .auth-icon {
+        position: relative;
+        font-size: 20px;
+        color: white;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background-color: rgba(212, 175, 55, 0.2);
+    }
+    
+    .auth-icon:hover {
+        background-color: #d4af37;
+        color: #121212;
+        transform: translateY(-3px);
+    }
+    
+    .auth-icon .tooltip {
+        position: absolute;
+        bottom: -35px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 12px;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+        z-index: 10;
+    }
+    
+    .auth-icon:hover .tooltip {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    
+    .logo h1 {
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: 700;
+    }
+    
+    .logo span {
+        color: #d4af37;
+    }
+    
+    /* Mobil menü için */
+    .mobile-menu-list li a {
+        font-weight: 700;
+        font-family: 'Ubuntu', sans-serif;
+    }
+    
+    .form-control, .form-select {
+        background-color: #333;
+        border-color: #333333;
+        color: #ffffff;
+    }
+    
+    .form-control:focus, .form-select:focus {
+        background-color: #3a3a3a;
+        border-color: #e6c458;
+        box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25);
+    }
+    
+    .btn-primary {
+        background-color: #d4af37;
+        border-color: #d4af37;
+        color: #121212;
+    }
+    
+    .btn-primary:hover {
+        background-color: #e6c458;
+        border-color: #e6c458;
+    }
+    
+    .btn-secondary {
+        background-color: #3a3a3a;
+        border-color: #3a3a3a;
+    }
+    
+    .btn-secondary:hover {
+        background-color: #4a4a4a;
+        border-color: #4a4a4a;
+    }
+    
+    .section-title h2 {
+        color: #ffffff;
+    }
+    
+    .property-card {
+        background-color: #252525;
+    }
+    
+    .property-tag {
+        background-color: #d4af37;
+        color: #121212;
+    }
+    
+    .property-price {
+        background-color: #b3941e;
+    }
+    
+    .service-box, .testimonial-box {
+        background-color: #252525;
+    }
+    
+    .service-icon {
+        background-color: #d4af37;
+    }
+    
+    .service-icon i {
+        color: #121212;
+    }
+    
+    .bg-light {
+        background-color: #1e1e1e !important;
+    }
+    
+    .testimonial-img {
+        border-color: #d4af37;
+    }
+    
+    .modal-content {
+        background-color: #252525;
+        color: #ffffff;
+    }
+    
+    .list-group-item {
+        background-color: #252525;
+        color: #ffffff;
+        border-color: #333333;
+    }
+    
+    .input-group-text {
+        background-color: #333;
+        color: #b3b3b3;
+        border-color: #333333;
+    }
+</style>
 
 <!-- Hero Section -->
 <section class="hero-section">
@@ -452,4 +633,69 @@ function toggleFavorite(button, ilanId) {
         alert('İşlem sırasında bir hata oluştu. Lütfen tekrar deneyin.');
     });
 }
+
+// Sayfa yüklendiğinde çalışacak script
+document.addEventListener('DOMContentLoaded', function() {
+    // Sticky header
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('.main-header');
+        if (window.scrollY > 100) {
+            header.classList.add('sticky');
+        } else {
+            header.classList.remove('sticky');
+        }
+    });
+    
+    // Back to top button
+    const backToTopBtn = document.querySelector('.back-to-top');
+    if (backToTopBtn) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('active');
+            } else {
+                backToTopBtn.classList.remove('active');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+    
+    // Form element işlemleri
+    const formControls = document.querySelectorAll('.form-control, .form-select');
+    formControls.forEach(element => {
+        element.addEventListener('focus', function() {
+            this.parentElement.classList.add('focused');           
+        });
+        
+        element.addEventListener('blur', function() {
+            this.parentElement.classList.remove('focused');
+        });
+    });
+    
+    // Lazyload images
+    const lazyImages = document.querySelectorAll('.lazy-load');
+    if (lazyImages.length > 0) {
+        const lazyLoad = function() {
+            lazyImages.forEach(img => {
+                if (img.getBoundingClientRect().top <= window.innerHeight && img.getBoundingClientRect().bottom >= 0) {
+                    img.src = img.dataset.src;
+                    img.classList.add('loaded');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', lazyLoad);
+        window.addEventListener('resize', lazyLoad);
+        window.addEventListener('orientationchange', lazyLoad);
+        lazyLoad(); // İlk yüklemede de kontrol et
+    }
+});
 </script>
+</body>
+</html>
