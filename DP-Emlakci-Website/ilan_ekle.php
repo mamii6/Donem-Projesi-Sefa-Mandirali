@@ -55,7 +55,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // Header'ı dahil et
 include 'includes/header.php';
 ?>
-
+<style>
+     .form-control, .form-select {
+        background-color: #333;
+        border-color: #333333;
+        color: #ffffff !important;
+    }
+    
+</style>
 <!-- Page Header -->
 <div class="page-header">
     <div class="container">

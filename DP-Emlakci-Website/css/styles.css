@@ -58,6 +58,11 @@ input::placeholder {
     color: #ffffff;
     margin-bottom: 8px;
 }
+label.form-label {
+    
+    color: #ffffff!important;
+   
+}
 .focused, .blur>input{
     color:white;
 }

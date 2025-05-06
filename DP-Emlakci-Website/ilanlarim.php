@@ -274,7 +274,7 @@ include 'includes/header.php';
 .border.p-2.rounded {
     background-color: #333;
 }
-<style>
+
 </style>
 <!-- Page Header -->
 <div class="page-header">

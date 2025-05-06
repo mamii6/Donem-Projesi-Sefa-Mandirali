@@ -7,9 +7,9 @@
                         <h3>MMSM<span>Emlak</span></h3>
                         <p>MMSM Emlak olarak, müşterilerimize en kaliteli hizmeti sunmayı ve emlak sektöründe güvenilir bir rehber olmayı amaçlıyoruz.</p>
                         <div class="footer-social">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="muhmt"><i class="fab fa-facebook-f"></i></a>
+                            <a href="muhammetmandirali_"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></i></a>
                             <a href="#"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
@@ -51,8 +51,8 @@
                     </div>
                     <div class="col-md-6">
                         <ul class="footer-bottom-links">
-                            <li><a href="kullanici-sozlesmesi.php">Kullanıcı Sözleşmesi</a></li>
-                            <li><a href="gizlilik-politikasi.php">Gizlilik Politikası</a></li>
+                            <li><a href="#">Kullanıcı Sözleşmesi</a></li>
+                            <li><a href="#">Gizlilik Politikası</a></li>
                         </ul>
                     </div>
                 </div>

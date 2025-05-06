@@ -344,14 +344,16 @@ a:hover {
 
 /* ===== HERO SECTION ===== */
 .hero-section {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../img/hero-bg.jpg');
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../img/section1.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 150px 0;
+    padding: 300px 0;
     color: white;
     text-align: center;
     margin-top: 0;
+    height: 700px;
+    
 }
 
 .hero-content {

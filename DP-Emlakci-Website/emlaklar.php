@@ -238,8 +238,8 @@ include 'includes/header.php';
     }
     
     .hero-small {
-        padding: 80px 0 50px;
-        background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../img/page-header-bg.jpg');
+        padding: 300px 0 50px;
+        background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('img/section3.jpg');
         background-size: cover;
         background-position: center;
     }

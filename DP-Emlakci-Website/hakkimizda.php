@@ -24,10 +24,18 @@ include 'includes/header.php';
 <link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet" href="css/hakkimizda.css">
 
-
+<style>
+    .hero-small {
+    padding: 300px 0 50px;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('img/section5.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 700px;
+}
+</style>
 
 <!-- Hero Section -->
-<section class="page-header" style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../img/page-header-bg.jpg');">
+<section class="page-header hero-small" >
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -48,7 +56,7 @@ include 'includes/header.php';
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6 mb-4 mb-lg-0">
-                <img src="img/logo.png"alt="Emlak Şirketimiz" class="img-fluid rounded shadow-lg">
+                <img src="img/hakkimizdas.jpg"alt="Emlak Şirketimiz" class="img-fluid rounded shadow-lg">
             </div>
             <div class="col-lg-6">
                 <div class="content-section">
@@ -276,14 +284,14 @@ include 'includes/header.php';
             <div class="col-lg-3 col-md-6 mb-4">
                 <div class="team-box text-center">
                     <div class="team-img">
-                        <img src="img/logo.png" alt="Ekip Üyesi" class="img-fluid rounded-circle">
+                        <img src="img/profilerkek.jpg" alt="Ekip Üyesi" class="img-fluid rounded-circle">
                         <div class="team-social">
                             <a href="#"><i class="fab fa-facebook-f"></i></a>
                             <a href="#"><i class="fab fa-twitter"></i></a>
                             <a href="#"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
-                    <h4>Ahmet Yılmaz</h4>
+                    <h4>Muhammet MS Mandıralı</h4>
                     <p>Genel Müdür</p>
                 </div>
             </div>
@@ -291,14 +299,14 @@ include 'includes/header.php';
             <div class="col-lg-3 col-md-6 mb-4">
                 <div class="team-box text-center">
                     <div class="team-img">
-                        <img src="img/logo.png" alt="Ekip Üyesi" class="img-fluid rounded-circle">
+                        <img src="img/profilerkek.jpg" alt="Ekip Üyesi" class="img-fluid rounded-circle">
                         <div class="team-social">
                             <a href="#"><i class="fab fa-facebook-f"></i></a>
                             <a href="#"><i class="fab fa-twitter"></i></a>
                             <a href="#"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
-                    <h4>Ayşe Demir</h4>
+                    <h4>Ahmet Yüksek</h4>
                     <p>Satış Direktörü</p>
                 </div>
             </div>
@@ -306,14 +314,14 @@ include 'includes/header.php';
             <div class="col-lg-3 col-md-6 mb-4">
                 <div class="team-box text-center">
                     <div class="team-img">
-                        <img src="img/logo.png" alt="Ekip Üyesi" class="img-fluid rounded-circle">
+                        <img src="img/profilerkek.jpg" alt="Ekip Üyesi" class="img-fluid rounded-circle">
                         <div class="team-social">
                             <a href="#"><i class="fab fa-facebook-f"></i></a>
                             <a href="#"><i class="fab fa-twitter"></i></a>
                             <a href="#"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
-                    <h4>Mehmet Kaya</h4>
+                    <h4>Metin Çoşkun</h4>
                     <p>Kıdemli Emlak Danışmanı</p>
                 </div>
             </div>
@@ -321,14 +329,14 @@ include 'includes/header.php';
             <div class="col-lg-3 col-md-6 mb-4">
                 <div class="team-box text-center">
                     <div class="team-img">
-                        <img src="img/logo.png" alt="Ekip Üyesi" class="img-fluid rounded-circle">
+                        <img src="img/profilerkek.jpg" alt="Ekip Üyesi" class="img-fluid rounded-circle">
                         <div class="team-social">
                             <a href="#"><i class="fab fa-facebook-f"></i></a>
                             <a href="#"><i class="fab fa-twitter"></i></a>
                             <a href="#"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
-                    <h4>Zeynep Öztürk</h4>
+                    <h4>Ali Veli</h4>
                     <p>Pazarlama Uzmanı</p>
                 </div>
             </div>
@@ -399,33 +407,33 @@ include 'includes/header.php';
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="testimonial-box">
                     <div class="testimonial-img">
-                        <img src="img/logo.png" alt="Müşteri Yorumu">
+                        <img src="img/profilerkek.jpg" alt="Müşteri Yorumu">
                     </div>
                     <p class="testimonial-text">"Profesyonel Emlak ile çalışmak gerçekten çok keyifliydi. Hayalimdeki evi bulmamda büyük yardımları oldu. Emlak danışmanım her adımda yanımdaydı ve tüm sorularımı sabırla yanıtladı."</p>
-                    <h4 class="testimonial-name">Ali Yılmaz</h4>
-                    <p class="testimonial-position">İstanbul</p>
+                    <h4 class="testimonial-name">Muhammet MS Mandıralı</h4>
+                    <p class="testimonial-position">Samsun</p>
                 </div>
             </div>
             
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="testimonial-box">
                     <div class="testimonial-img">
-                        <img src="img/logo.png" alt="Müşteri Yorumu">
+                        <img src="img/profilerkek.jpg" alt="Müşteri Yorumu">
                     </div>
                     <p class="testimonial-text">"Evimizi satmak için birçok emlakçı ile görüştük ancak en profesyonel yaklaşımı Profesyonel Emlak'tan gördük. Tüm süreç boyunca şeffaf ve bilgilendirici bir yaklaşım sergilediler."</p>
-                    <h4 class="testimonial-name">Ayşe Demir</h4>
-                    <p class="testimonial-position">Ankara</p>
+                    <h4 class="testimonial-name">Ahmet Yüksek</h4>
+                    <p class="testimonial-position">Antalya</p>
                 </div>
             </div>
             
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="testimonial-box">
                     <div class="testimonial-img">
-                        <img src="img/logo.png" alt="Müşteri Yorumu">
+                        <img src="img/profilerkek.jpg" alt="Müşteri Yorumu">
                     </div>
                     <p class="testimonial-text">"Yatırım amaçlı bir daire arıyordum ve Profesyonel Emlak sayesinde hem bütçeme uygun hem de yüksek getiri potansiyeli olan bir daire buldum. Danışmanlık hizmetleri gerçekten çok değerliydi."</p>
-                    <h4 class="testimonial-name">Mehmet Kaya</h4>
-                    <p class="testimonial-position">İzmir</p>
+                    <h4 class="testimonial-name">Metin Çoşkun</h4>
+                    <p class="testimonial-position">Ankara</p>
                 </div>
             </div>
         </div>

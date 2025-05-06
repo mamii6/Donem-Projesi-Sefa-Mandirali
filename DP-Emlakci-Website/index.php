@@ -245,7 +245,7 @@ include 'includes/header.php';
 
 <!-- Hero Section -->
 <section class="hero-section">
-    <div class="container">
+    <div class="container" >
         <div class="hero-content">
             <h1>Hayalinizdeki Evi Keşfedin</h1>
             <p>En güvenilir emlak platformunda binlerce ilan arasından size uygun olanı seçin. Ev aramanın yeni ve kolay yolu.</p>
@@ -256,124 +256,7 @@ include 'includes/header.php';
         </div>
     </div>
     
-    <!-- Yeni filtreleme formu - Sayfanın ortasında ve üstte -->
-    <div class="container position-relative">
-        <div class="search-form-floating">
-            <div class="search-form-tabs">
-                <ul class="nav nav-tabs" id="searchTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="buy-tab" data-bs-toggle="tab" data-bs-target="#buy-tab-pane" type="button" role="tab" aria-controls="buy-tab-pane" aria-selected="true">Satılık</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="rent-tab" data-bs-toggle="tab" data-bs-target="#rent-tab-pane" type="button" role="tab" aria-controls="rent-tab-pane" aria-selected="false">Kiralık</button>
-                    </li>
-                </ul>
-                <div class="tab-content" id="searchTabsContent">
-                    <div class="tab-pane fade show active" id="buy-tab-pane" role="tabpanel" aria-labelledby="buy-tab" tabindex="0">
-                        <form method="GET" action="emlaklar.php" class="search-form p-4">
-                            <div class="row align-items-end">
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="form-group mb-md-0 mb-3">
-                                        <label for="adres" class="form-label"><i class="fas fa-map-marker-alt me-2"></i>Konum</label>
-                                        <input type="text" id="adres" name="adres" class="form-control" placeholder="Şehir, ilçe veya mahalle" value="<?php echo htmlspecialchars($adres); ?>">
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="form-group mb-md-0 mb-3">
-                                        <label for="oda_sayisi" class="form-label"><i class="fas fa-bed me-2"></i>Oda Sayısı</label>
-                                        <select id="oda_sayisi" name="oda_sayisi" class="form-select">
-                                            <option value="">Tümü</option>
-                                            <option value="1" <?php echo $oda_sayisi == '1' ? 'selected' : ''; ?>>1+0</option>
-                                            <option value="2" <?php echo $oda_sayisi == '2' ? 'selected' : ''; ?>>1+1</option>
-                                            <option value="3" <?php echo $oda_sayisi == '3' ? 'selected' : ''; ?>>2+1</option>
-                                            <option value="4" <?php echo $oda_sayisi == '4' ? 'selected' : ''; ?>>3+1</option>
-                                            <option value="5" <?php echo $oda_sayisi == '5' ? 'selected' : ''; ?>>4+1</option>
-                                            <option value="6" <?php echo $oda_sayisi == '6' ? 'selected' : ''; ?>>5+ ve üzeri</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="form-group mb-md-0 mb-3">
-                                        <label for="price_range" class="form-label"><i class="fas fa-tag me-2"></i>Fiyat Aralığı</label>
-                                        <div class="input-group">
-                                            <input type="number" id="min_fiyat" name="min_fiyat" class="form-control" placeholder="Min TL" value="<?php echo htmlspecialchars($min_fiyat); ?>">
-                                            <span class="input-group-text">-</span>
-                                            <input type="number" id="max_fiyat" name="max_fiyat" class="form-control" placeholder="Max TL" value="<?php echo htmlspecialchars($max_fiyat); ?>">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-md-6">
-                                    <button type="submit" class="btn btn-primary w-100"><i class="fas fa-search me-2"></i>Ara</button>
-                                </div>
-                            </div>
-                            
-                            <div class="advanced-search-toggle mt-3">
-                                <a href="#advancedSearchOptions" data-bs-toggle="collapse" aria-expanded="false" aria-controls="advancedSearchOptions">
-                                    <i class="fas fa-sliders-h me-2"></i>Gelişmiş Arama
-                                </a>
-                            </div>
-                            
-                            <div class="collapse mt-3" id="advancedSearchOptions">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="metrekare_min" class="form-label"><i class="fas fa-ruler-combined me-2"></i>Metrekare Aralığı</label>
-                                            <div class="input-group">
-                                                <input type="number" id="metrekare_min" name="metrekare_min" class="form-control" placeholder="Min m²" value="<?php echo htmlspecialchars($metrekare_min); ?>">
-                                                <span class="input-group-text">-</span>
-                                                <input type="number" id="metrekare_max" name="metrekare_max" class="form-control" placeholder="Max m²" value="<?php echo htmlspecialchars($metrekare_max); ?>">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Diğer gelişmiş arama seçenekleri buraya eklenebilir -->
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="tab-pane fade" id="rent-tab-pane" role="tabpanel" aria-labelledby="rent-tab" tabindex="0">
-                        <form method="GET" action="emlaklar.php" class="search-form p-4">
-                            <input type="hidden" name="tur" value="kiralik">
-                            <div class="row align-items-end">
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="form-group mb-md-0 mb-3">
-                                        <label for="adres_kira" class="form-label"><i class="fas fa-map-marker-alt me-2"></i>Konum</label>
-                                        <input type="text" id="adres_kira" name="adres" class="form-control" placeholder="Şehir, ilçe veya mahalle" value="<?php echo htmlspecialchars($adres); ?>">
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="form-group mb-md-0 mb-3">
-                                        <label for="oda_sayisi_kira" class="form-label"><i class="fas fa-bed me-2"></i>Oda Sayısı</label>
-                                        <select id="oda_sayisi_kira" name="oda_sayisi" class="form-select">
-                                            <option value="">Tümü</option>
-                                            <option value="1" <?php echo $oda_sayisi == '1' ? 'selected' : ''; ?>>1+0</option>
-                                            <option value="2" <?php echo $oda_sayisi == '2' ? 'selected' : ''; ?>>1+1</option>
-                                            <option value="3" <?php echo $oda_sayisi == '3' ? 'selected' : ''; ?>>2+1</option>
-                                            <option value="4" <?php echo $oda_sayisi == '4' ? 'selected' : ''; ?>>3+1</option>
-                                            <option value="5" <?php echo $oda_sayisi == '5' ? 'selected' : ''; ?>>4+1</option>
-                                            <option value="6" <?php echo $oda_sayisi == '6' ? 'selected' : ''; ?>>5+ ve üzeri</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="form-group mb-md-0 mb-3">
-                                        <label for="price_range_kira" class="form-label"><i class="fas fa-tag me-2"></i>Kira Aralığı</label>
-                                        <div class="input-group">
-                                            <input type="number" id="min_fiyat_kira" name="min_fiyat" class="form-control" placeholder="Min TL" value="<?php echo htmlspecialchars($min_fiyat); ?>">
-                                            <span class="input-group-text">-</span>
-                                            <input type="number" id="max_fiyat_kira" name="max_fiyat" class="form-control" placeholder="Max TL" value="<?php echo htmlspecialchars($max_fiyat); ?>">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-md-6">
-                                    <button type="submit" class="btn btn-primary w-100"><i class="fas fa-search me-2"></i>Ara</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+  
 </section>
 
 <!-- Featured Properties Section -->
@@ -510,21 +393,21 @@ include 'includes/header.php';
             <div class="col-lg-4 col-md-6">
                 <div class="testimonial-box">
                     <div class="testimonial-img">
-                        <img src="img/logo.png" alt="Müşteri Yorumu">
+                        <img src="img/profilerkek.jpg" alt="Müşteri Yorumu">
                     </div>
                     <p class="testimonial-text">"Bu platformda hayalimdeki evi bulmak çok kolay oldu. Profesyonel ekibi ve kullanıcı dostu arayüzü ile kesinlikle herkese tavsiye ederim."</p>
-                    <h4 class="testimonial-name">Ahmet Yılmaz</h4>
-                    <p class="testimonial-position">İstanbul</p>
+                    <h4 class="testimonial-name">Ahmet Yüksek</h4>
+                    <p class="testimonial-position">Antalya</p>
                 </div>
             </div>
 
             <div class="col-lg-4 col-md-6">
                 <div class="testimonial-box">
                     <div class="testimonial-img">
-                        <img src="img/logo.png" alt="Müşteri Yorumu">
+                        <img src="img/profilerkek.jpg" alt="Müşteri Yorumu">
                     </div>
                     <p class="testimonial-text">"İlan vermek çok kolay ve hızlı. Sadece birkaç günde evimi satmayı başardım, teşekkürler Profesyonel Emlak!"</p>
-                    <h4 class="testimonial-name">Ayşe Demir</h4>
+                    <h4 class="testimonial-name">Metin Çoşkun</h4>
                     <p class="testimonial-position">Ankara</p>
                 </div>
             </div>
@@ -532,11 +415,11 @@ include 'includes/header.php';
             <div class="col-lg-4 col-md-6">
                 <div class="testimonial-box">
                     <div class="testimonial-img">
-                        <img src="img/logo.png" alt="Müşteri Yorumu">
+                        <img src="img/profilerkek.jpg" alt="Müşteri Yorumu">
                     </div>
                     <p class="testimonial-text">"Emlak yatırımı konusunda aldığım danışmanlık hizmeti sayesinde doğru kararlar verdim ve kazançlı çıktım."</p>
-                    <h4 class="testimonial-name">Mehmet Kaya</h4>
-                    <p class="testimonial-position">İzmir</p>
+                    <h4 class="testimonial-name">Muhammet MS Mandıralı</h4>
+                    <p class="testimonial-position">Samsun</p>
                 </div>
             </div>
         </div>

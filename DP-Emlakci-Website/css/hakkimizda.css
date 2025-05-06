@@ -357,6 +357,7 @@ h1, h2, h3, h4, h5, h6 {
     animation: count-up 2.5s ease-in-out forwards;
 }
 
+
 @keyframes count-up {
     from {
         opacity: 0;

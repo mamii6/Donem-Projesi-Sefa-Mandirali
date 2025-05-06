@@ -46,8 +46,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $sifre_hash = password_hash($sifre, PASSWORD_DEFAULT);
             
             try {
-                // Kullanıcıyı veritabanına ekle
-                $stmt = $pdo->prepare("INSERT INTO kullanicilar (ad, soyad, email, telefon, dogum_tarihi, cinsiyet, sifre, kayit_tarihi, son_giris, durum) VALUES (?, ?, ?, ?, ?, ?, ?, NOW(), NOW(), 'aktif')");
+                // Telefon numarasından boşlukları kaldır
+                $telefon = str_replace(' ', '', $telefon);
+                
+                // Kullanıcıyı veritabanına ekle - son_giris kaldırıldı
+                $stmt = $pdo->prepare("INSERT INTO kullanicilar (ad, soyad, email, telefon, dogum_tarihi, cinsiyet, sifre, kayit_tarihi) VALUES (?, ?, ?, ?, ?, ?, ?, NOW())");
                 $stmt->execute([$ad, $soyad, $email, $telefon, $dogum_tarihi, $cinsiyet, $sifre_hash]);
                 
                 // Kullanıcının ID'sini al
@@ -65,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             } catch (PDOException $e) {
                 $hata_mesaji = "Kayıt sırasında bir hata oluştu. Lütfen daha sonra tekrar deneyin.";
                 // Hata kaydı
-                // error_log($e->getMessage());
+                error_log($e->getMessage());
             }
         }
     }

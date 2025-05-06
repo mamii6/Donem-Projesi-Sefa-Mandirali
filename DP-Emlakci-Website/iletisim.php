@@ -319,10 +319,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["iletisim_formu"])) {
         overflow: hidden;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     }
+    .hero-small {
+    padding: 300px 0 50px;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('img/section6.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 700px;
+    }
 </style>
 
 <!-- Hero Section -->
-<section class="page-header" style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../img/page-header-bg.jpg');">
+<section class="page-header hero-small">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -491,7 +498,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["iletisim_formu"])) {
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="branch-box">
                     <div class="branch-img">
-                        <img src="img/branch-istanbul.jpg" alt="İstanbul Şubesi" class="img-fluid">
+                        <img src="img/sayfalogo.png" alt="İstanbul Şubesi" class="img-fluid">
                         <div class="branch-overlay">
                             <a href="tel:+902123456789" class="btn btn-sm btn-light">
                                 <i class="fas fa-phone-alt me-2"></i> Ara
@@ -512,7 +519,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["iletisim_formu"])) {
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="branch-box">
                     <div class="branch-img">
-                        <img src="img/branch-ankara.jpg" alt="Ankara Şubesi" class="img-fluid">
+                        <img src="img/sayfalogo.png" alt="Ankara Şubesi" class="img-fluid">
                         <div class="branch-overlay">
                             <a href="tel:+903123456789" class="btn btn-sm btn-light">
                                 <i class="fas fa-phone-alt me-2"></i> Ara
@@ -533,7 +540,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["iletisim_formu"])) {
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="branch-box">
                     <div class="branch-img">
-                        <img src="img/branch-izmir.jpg" alt="İzmir Şubesi" class="img-fluid">
+                        <img src="img/sayfalogo.png" alt="İzmir Şubesi" class="img-fluid">
                         <div class="branch-overlay">
                             <a href="tel:+902323456789" class="btn btn-sm btn-light">
                                 <i class="fas fa-phone-alt me-2"></i> Ara

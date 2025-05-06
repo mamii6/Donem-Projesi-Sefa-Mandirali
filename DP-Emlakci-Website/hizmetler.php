@@ -152,10 +152,17 @@ include 'includes/header.php';
     .breadcrumb-item+.breadcrumb-item::before {
         color: #b3b3b3;
     }
+    .hero-small {
+        padding: 300px 0 50px;
+        background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('img/section4.jpg');
+        background-size: cover;
+        background-position: center;
+        height: 700px;
+    }
 </style>
 
 <!-- Hero Section -->
-<section class="page-header" style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../img/page-header-bg.jpg');">
+<section class="page-header hero-small" >
     <div class="container">
         <div class="row">
             <div class="col-12">
