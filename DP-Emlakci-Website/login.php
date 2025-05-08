@@ -53,9 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["giris_yap"])) {
                     setcookie("kullanici_validator", bin2hex($token), $expires, "/");
                 }
                 
-                // Giriş tarihini güncelle
-                $update_stmt = $pdo->prepare("UPDATE kullanicilar SET son_giris = NOW() WHERE id = ?");
-                $update_stmt->execute([$kullanici["id"]]);
+               
                 
                 // Yönlendirme öncesi bildirimi ayarla
                 $success_mesaji = "Giriş başarılı. Yönlendiriliyorsunuz...";

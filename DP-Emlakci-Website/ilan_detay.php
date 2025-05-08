@@ -18,11 +18,17 @@ $stmt->execute([$ilan_id]);
 
 $ilan = $stmt->fetch(PDO::FETCH_ASSOC);
 
+// İlk kontrol: ilan var mı?
 if (!$ilan) {
     header("Location: index.php");
     exit;
 }
 
+// İkinci kontrol: ilan onaylı mı?
+if ($ilan['durum'] !== 'onaylı') {
+    header("Location: index.php");
+    exit;
+}
 $success_message = "";
 $error_message = "";
 
